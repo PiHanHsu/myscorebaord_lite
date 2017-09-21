@@ -15,15 +15,13 @@ class SelectPlayersCollectionViewController: UICollectionViewController, UIColle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
         // Register cell classes
         let nib = UINib(nibName: "PlayerCollectionViewCell", bundle: nil)
         collectionView?.register(nib, forCellWithReuseIdentifier: "PlayerCollectionViewCell")
-
+ 
+        // Allouw Multiple Selection
+        collectionView?.allowsMultipleSelection = true
         
-        // Do any additional setup after loading the view.
 
     }
 
@@ -57,7 +55,7 @@ class SelectPlayersCollectionViewController: UICollectionViewController, UIColle
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlayerCollectionViewCell", for: indexPath) as! PlayerCollectionViewCell
-    cell.playerNameLabel.text = "Player!!"
+         cell.playerNameLabel.text = "Player!!"
         
         // Configure the cell
     

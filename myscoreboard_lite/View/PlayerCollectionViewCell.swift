@@ -13,9 +13,17 @@ class PlayerCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var playerImageView: UIImageView!
     @IBOutlet weak var playerNameLabel: UILabel!
     @IBOutlet weak var selectedButton: UIButton!
+    
+    override var isSelected: Bool{
+        didSet {
+            playerImageView.layer.borderWidth = isSelected ? 10 : 0
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        playerImageView.layer.borderColor = UIColor.red.cgColor
+        isSelected = false
     }
 
 }
