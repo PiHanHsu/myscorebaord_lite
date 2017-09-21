@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PlayerCollectionViewCell" id="cZW-zP-U9B" customClass="PlayerCollectionViewCell" customModule="myscoreboard_lite" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="230" height="230"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="230" height="230"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Cog-GG-1Bh">
+                        <rect key="frame" x="3" y="203" width="224" height="24"/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aR7-5M-hDn">
+                        <rect key="frame" x="100" y="0.0" width="30" height="30.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="aR7-5M-hDn" secondAttribute="height" multiplier="60:61" id="9PR-ui-PkC"/>
+                        </constraints>
+                    </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="eui-bg-G3A">
+                        <rect key="frame" x="15" y="0.0" width="200" height="200"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="eui-bg-G3A" secondAttribute="height" multiplier="1:1" id="r47-Op-tRL"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="eui-bg-G3A" firstAttribute="top" secondItem="cZW-zP-U9B" secondAttribute="top" id="1LG-fg-bXD"/>
+                <constraint firstItem="aR7-5M-hDn" firstAttribute="centerX" secondItem="cZW-zP-U9B" secondAttribute="centerX" id="Pgj-Ks-KfH"/>
+                <constraint firstItem="Cog-GG-1Bh" firstAttribute="top" secondItem="eui-bg-G3A" secondAttribute="bottom" constant="3" id="RKD-8B-j0N"/>
+                <constraint firstItem="eui-bg-G3A" firstAttribute="centerX" secondItem="cZW-zP-U9B" secondAttribute="centerX" id="ZAx-sk-wFn"/>
+                <constraint firstItem="Cog-GG-1Bh" firstAttribute="leading" secondItem="cZW-zP-U9B" secondAttribute="leading" constant="3" id="pEc-Xz-C5B"/>
+                <constraint firstAttribute="trailing" secondItem="Cog-GG-1Bh" secondAttribute="trailing" constant="3" id="sXb-sE-OQz"/>
+                <constraint firstItem="aR7-5M-hDn" firstAttribute="top" secondItem="cZW-zP-U9B" secondAttribute="top" id="xm6-Lr-54N"/>
+                <constraint firstAttribute="bottom" secondItem="Cog-GG-1Bh" secondAttribute="bottom" constant="3" id="yaa-WZ-QRa"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="R9p-NB-AIe"/>
+            <size key="customSize" width="181" height="231"/>
+            <connections>
+                <outlet property="playerImageView" destination="eui-bg-G3A" id="lX2-4X-OGD"/>
+                <outlet property="playerNameLabel" destination="Cog-GG-1Bh" id="ANP-Ny-Zkc"/>
+                <outlet property="selectedButton" destination="aR7-5M-hDn" id="n3l-YN-GL9"/>
+            </connections>
+            <point key="canvasLocation" x="-25" y="192"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="user_placeholder" width="100" height="100"/>
+    </resources>
+</document>

@@ -61,7 +61,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ciw-k2-PrX">
-                                            <rect key="frame" x="58" y="11" width="53.5" height="21"/>
+                                            <rect key="frame" x="58" y="11.5" width="53.5" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -69,6 +69,7 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="ciw-k2-PrX" firstAttribute="centerY" secondItem="bPg-ya-S88" secondAttribute="centerY" id="94s-5P-ILN"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ciw-k2-PrX" secondAttribute="trailingMargin" id="Hpq-50-Qhg"/>
                                         <constraint firstItem="ciw-k2-PrX" firstAttribute="leading" secondItem="bPg-ya-S88" secondAttribute="leadingMargin" constant="50" id="THX-pb-mMr"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -96,19 +97,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gsK-Nu-tDF">
-                            <size key="itemSize" width="50" height="50"/>
+                            <size key="itemSize" width="150" height="150"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="clL-3P-LlG">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="clL-3P-LlG" customClass="PlayerCollectionViewCell" customModule="myscoreboard_lite" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </view>
+                                <size key="customSize" width="150" height="150"/>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -128,7 +130,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ddS-31-zI1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1666" y="132"/>
+            <point key="canvasLocation" x="1665.625" y="131.8359375"/>
         </scene>
         <!--Game Schedule Table View Controller-->
         <scene sceneID="K2t-zb-Tr7">
