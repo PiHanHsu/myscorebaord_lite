@@ -10,5 +10,6 @@ import Foundation
 struct Player {
     let name: String
     let imageUrl: String
+    var user_id: String
     var uWeight: Int
 }
