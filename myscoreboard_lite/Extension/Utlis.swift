@@ -16,3 +16,22 @@ extension String
             self.trimmingCharacters(in: NSCharacterSet.whitespaces)
     }
 }
+
+extension Array where Element: Equatable {
+    
+    // Remove first collection element that is equal to the given `object`:
+    mutating func remove(object: Element) {
+        if let index = index(of: object) {
+            remove(at: index)
+        }
+    }
+    
+    //shuffle
+    mutating func shuffle() -> [Element] {
+        for _ in 0...self.count {
+            let r = Int(arc4random_uniform(UInt32(self.count)))
+            self.insert(self.remove(at: r), at: 0)
+        }
+        return self
+    }
+}

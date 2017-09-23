@@ -7,7 +7,7 @@
 //
 
 import Foundation
-struct Player {
+class Player : NSObject{
     var name: String = ""
     var imageUrl: String = ""
     var user_id: String = ""
