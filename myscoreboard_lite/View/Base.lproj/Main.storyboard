@@ -151,7 +151,7 @@
                     <navigationItem key="navigationItem" title="Select Players" id="vFK-vC-CNY">
                         <barButtonItem key="rightBarButtonItem" title="Start Game" id="ZaM-Wy-yUQ">
                             <connections>
-                                <segue destination="3KZ-c6-GUi" kind="show" id="vgC-br-sWk"/>
+                                <segue destination="3KZ-c6-GUi" kind="show" identifier="StartGame" id="vgC-br-sWk"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
