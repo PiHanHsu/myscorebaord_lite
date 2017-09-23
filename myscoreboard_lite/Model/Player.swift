@@ -8,8 +8,8 @@
 
 import Foundation
 struct Player {
-    let name: String
-    let imageUrl: String
-    var user_id: String
-    var uWeight: Int
+    var name: String = ""
+    var imageUrl: String = ""
+    var user_id: String = ""
+    var uWeight: Int = 0
 }

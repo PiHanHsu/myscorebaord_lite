@@ -79,7 +79,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TeamTableViewCell" editingAccessoryType="detailDisclosureButton" id="Fd1-nA-py9">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TeamTableViewCell" editingAccessoryType="detailDisclosureButton" id="Fd1-nA-py9" customClass="TeamTableViewCell" customModule="myscoreboard_lite" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fd1-nA-py9" id="bPg-ya-S88">
@@ -99,6 +99,9 @@
                                         <constraint firstItem="ciw-k2-PrX" firstAttribute="leading" secondItem="bPg-ya-S88" secondAttribute="leadingMargin" constant="50" id="THX-pb-mMr"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="ciw-k2-PrX" id="ZAA-FO-Qwm"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

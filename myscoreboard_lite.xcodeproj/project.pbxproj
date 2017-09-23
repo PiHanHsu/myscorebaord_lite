@@ -20,6 +20,8 @@
 		C295532A1F73A5F000F07229 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29553291F73A5F000F07229 /* Player.swift */; };
 		C295532C1F73A67700F07229 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = C295532B1F73A67700F07229 /* Team.swift */; };
 		C295532E1F73ADDB00F07229 /* Utlis.swift in Sources */ = {isa = PBXBuildFile; fileRef = C295532D1F73ADDB00F07229 /* Utlis.swift */; };
+		C29553301F7631D200F07229 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C295532F1F7631D200F07229 /* DataSource.swift */; };
+		C29553321F7637D800F07229 /* TeamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29553311F7637D800F07229 /* TeamTableViewCell.swift */; };
 		EA2805935F38C41233022B4A /* Pods_myscoreboard_lite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9F51C949AB677B0C8B8EE5D /* Pods_myscoreboard_lite.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +44,8 @@
 		C29553291F73A5F000F07229 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		C295532B1F73A67700F07229 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		C295532D1F73ADDB00F07229 /* Utlis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utlis.swift; sourceTree = "<group>"; };
+		C295532F1F7631D200F07229 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		C29553311F7637D800F07229 /* TeamTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,7 @@
 			children = (
 				C29553291F73A5F000F07229 /* Player.swift */,
 				C295532B1F73A67700F07229 /* Team.swift */,
+				C295532F1F7631D200F07229 /* DataSource.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -122,6 +127,7 @@
 				C22D16FC1F6FAFC80007F398 /* LaunchScreen.storyboard */,
 				C22D17131F6FBFA90007F398 /* PlayerCollectionViewCell.swift */,
 				C22D17141F6FBFA90007F398 /* PlayerCollectionViewCell.xib */,
+				C29553311F7637D800F07229 /* TeamTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -292,7 +298,9 @@
 				C295532A1F73A5F000F07229 /* Player.swift in Sources */,
 				C22D170E1F6FB1AF0007F398 /* TeamTableViewController.swift in Sources */,
 				C295532E1F73ADDB00F07229 /* Utlis.swift in Sources */,
+				C29553301F7631D200F07229 /* DataSource.swift in Sources */,
 				C22D17151F6FBFA90007F398 /* PlayerCollectionViewCell.swift in Sources */,
+				C29553321F7637D800F07229 /* TeamTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

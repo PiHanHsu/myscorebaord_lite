@@ -63,7 +63,11 @@ class LoginViewController: UIViewController {
                 let data = JSON(response.result.value!)
                 
                 print("success")
-                print(data)
+                //print(data)
+                for team in data["results"].arrayValue {
+                    DataSource.sharedInstance.teams.append(Team(data: team))
+                }
+                
                 self.performSegue(withIdentifier: "GoToTeamsPage", sender: self)
             }else{
                 print("error")

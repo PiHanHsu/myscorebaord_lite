@@ -34,13 +34,16 @@ class TeamTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 3
+        return DataSource.sharedInstance.teams.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TeamTableViewCell", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TeamTableViewCell", for: indexPath) as! TeamTableViewCell
+        let teams = DataSource.sharedInstance.teams
+        
+        cell.nameLabel.text = teams[indexPath.row].name
+        
         // Configure the cell...
 
         return cell
