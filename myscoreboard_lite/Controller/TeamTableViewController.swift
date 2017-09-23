@@ -51,6 +51,7 @@ class TeamTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        DataSource.sharedInstance.currentPlayingTeamIndex = indexPath.row
         performSegue(withIdentifier: "SelectPlayers", sender: self)
         
     }
@@ -94,14 +95,17 @@ class TeamTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "SelectPlayers" {
+            let vc = segue.destination as! SelectPlayersCollectionViewController
+            let index = DataSource.sharedInstance.currentPlayingTeamIndex
+            vc.team = DataSource.sharedInstance.teams[index]
+        }
     }
-    */
+    
 
 }

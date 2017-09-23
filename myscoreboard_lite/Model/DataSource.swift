@@ -12,6 +12,6 @@ struct DataSource {
     
     var teams = [Team]()
     var currentUser = Player()
-    var currentPlayingTeamIndex = 0
+    var currentPlayingTeamIndex : Int = 0
     
 }

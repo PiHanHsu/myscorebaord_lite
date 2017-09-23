@@ -12,6 +12,9 @@ private let reuseIdentifier = "Cell"
 
 
 class SelectPlayersCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+    
+    var team : Team?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,12 +54,12 @@ class SelectPlayersCollectionViewController: UICollectionViewController, UIColle
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 20
+        return (team?.players.count)!
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlayerCollectionViewCell", for: indexPath) as! PlayerCollectionViewCell
-         cell.playerNameLabel.text = "Player!!"
+         cell.playerNameLabel.text = team?.players[indexPath.row].name
         
         // Configure the cell
     
