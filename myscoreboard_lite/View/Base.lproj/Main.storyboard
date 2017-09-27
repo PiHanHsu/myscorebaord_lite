@@ -120,7 +120,7 @@
         <!--Select Players-->
         <scene sceneID="e1j-oP-J0A">
             <objects>
-                <collectionViewController id="QmZ-FB-Saa" customClass="SelectPlayersCollectionViewController" customModule="myscoreboard_lite" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="SelectPlayers" id="QmZ-FB-Saa" customClass="SelectPlayersCollectionViewController" customModule="myscoreboard_lite" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Iie-dh-CqR">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -151,17 +151,21 @@
                     <navigationItem key="navigationItem" title="Select Players" id="vFK-vC-CNY">
                         <barButtonItem key="rightBarButtonItem" title="Start Game" id="ZaM-Wy-yUQ">
                             <connections>
-                                <segue destination="3KZ-c6-GUi" kind="show" identifier="StartGame" id="vgC-br-sWk"/>
+                                <action selector="startGameBarButtonPressed:" destination="QmZ-FB-Saa" id="K4b-OC-Dca"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="gameStartBarButton" destination="ZaM-Wy-yUQ" id="YAe-O8-agm"/>
+                        <segue destination="3KZ-c6-GUi" kind="show" identifier="StartGame" id="chq-nC-4Gi"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ddS-31-zI1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1665.625" y="131.8359375"/>
         </scene>
-        <!--Game Schedule Table View Controller-->
+        <!--Title-->
         <scene sceneID="K2t-zb-Tr7">
             <objects>
                 <tableViewController id="3KZ-c6-GUi" customClass="GameScheduleTableViewController" customModule="myscoreboard_lite" customModuleProvider="target" sceneMemberID="viewController">
@@ -184,10 +188,32 @@
                             <outlet property="delegate" destination="3KZ-c6-GUi" id="CqZ-HD-KaI"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Title" id="ds7-uU-Ba0">
+                        <barButtonItem key="leftBarButtonItem" title="Select Players" id="bW6-7G-HmJ">
+                            <connections>
+                                <segue destination="NOb-u6-guD" kind="presentation" identifier="SelectPlayersInPlayingMode" id="edS-lh-nu6"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Finish Game" id="A86-jv-BXO">
+                            <connections>
+                                <action selector="finishGame:" destination="3KZ-c6-GUi" id="eI4-0D-9av"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wxa-Y5-evJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2314" y="132"/>
+        </scene>
+        <!--SelectPlayers-->
+        <scene sceneID="qyd-wJ-6K6">
+            <objects>
+                <viewControllerPlaceholder referencedIdentifier="SelectPlayers" id="BiF-Ro-pEj" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="eKC-Lz-Od9"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fHc-TH-HxZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2751" y="830"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3Xu-m9-pbx">
@@ -206,6 +232,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="axh-4c-dqa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-350" y="132"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="TPc-mx-cSY">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NOb-u6-guD" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9Rf-P2-zpJ">
+                        <rect key="frame" x="0.0" y="20" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BiF-Ro-pEj" kind="relationship" relationship="rootViewController" id="Gcv-Xi-fo1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YTO-nA-Jvy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2313" y="830"/>
         </scene>
     </scenes>
 </document>

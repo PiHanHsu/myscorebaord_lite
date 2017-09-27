@@ -13,5 +13,6 @@ struct DataSource {
     var teams = [Team]()
     var currentUser = Player()
     var currentPlayingTeamIndex : Int = 0
-    
+    var currentPlayingTeam: Team?
+    var selectedPlayers = [Player]()
 }

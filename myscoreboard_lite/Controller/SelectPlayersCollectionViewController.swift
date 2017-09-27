@@ -15,10 +15,12 @@ class SelectPlayersCollectionViewController: UICollectionViewController, UIColle
     
     var team : Team?
     var selectedPlayers = [Player]()
+    var isPlayingMode = false
 
+    @IBOutlet weak var gameStartBarButton: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        DataSource.sharedInstance.currentPlayingTeam = team
         // Register cell classes
         let nib = UINib(nibName: "PlayerCollectionViewCell", bundle: nil)
         collectionView?.register(nib, forCellWithReuseIdentifier: "PlayerCollectionViewCell")
@@ -26,7 +28,12 @@ class SelectPlayersCollectionViewController: UICollectionViewController, UIColle
         // Allouw Multiple Selection
         collectionView?.allowsMultipleSelection = true
         
-
+        // set barbutton title
+        if isPlayingMode {
+            gameStartBarButton.title = "Continue"
+        }else{
+            gameStartBarButton.title = "Start Game"
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,49 +41,35 @@ class SelectPlayersCollectionViewController: UICollectionViewController, UIColle
         collectionView?.reloadData()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
         return (team?.players.count)!
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlayerCollectionViewCell", for: indexPath) as! PlayerCollectionViewCell
-         cell.playerNameLabel.text = team?.players[indexPath.row].name
-        if team?.players[indexPath.row].uWeight != 0 {
-            cell.countLabel.text = String(describing: (team?.players[indexPath.row].uWeight)!)
+        cell.playerNameLabel.text = team?.players[indexPath.row].name
+        if isPlayingMode{
+            selectedPlayers = DataSource.sharedInstance.selectedPlayers
+            if selectedPlayers.contains((team?.players[indexPath.row])!){
+            }else{
+                cell.isSelected = false
+            }
+            if team?.players[indexPath.row].uWeight != 0 {
+                cell.countLabel.text = String(describing: (team?.players[indexPath.row].uWeight)!)
+            }
         }
-        
-        // Configure the cell
-    
+       
         return cell
     }
 
     // MARK: UICollectionViewDelegate
     
-  
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
          let player = team?.players[indexPath.row]
@@ -88,11 +81,15 @@ class SelectPlayersCollectionViewController: UICollectionViewController, UIColle
         selectedPlayers = selectedPlayers.filter(){$0 != player!}
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "StartGame" {
-            let vc = segue.destination as! GameScheduleTableViewController
-            vc.selectedPlayers = self.selectedPlayers
+    
+    @IBAction func startGameBarButtonPressed(_ sender: UIBarButtonItem) {
+        DataSource.sharedInstance.selectedPlayers = self.selectedPlayers
+        
+        if isPlayingMode {
+            self.dismiss(animated: true, completion: nil)
+        }else{
+            performSegue(withIdentifier: "StartGame", sender: Any?.self)
         }
     }
-
+    
 }
