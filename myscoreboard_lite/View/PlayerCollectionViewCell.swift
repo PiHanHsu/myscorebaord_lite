@@ -14,6 +14,7 @@ class PlayerCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var playerNameLabel: UILabel!
     @IBOutlet weak var selectedButton: UIButton!
     
+    @IBOutlet weak var countLabel: UILabel!
     override var isSelected: Bool{
         didSet {
             playerImageView.layer.borderWidth = isSelected ? 10 : 0

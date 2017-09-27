@@ -28,6 +28,11 @@ class SelectPlayersCollectionViewController: UICollectionViewController, UIColle
         
 
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionView?.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -60,6 +65,9 @@ class SelectPlayersCollectionViewController: UICollectionViewController, UIColle
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlayerCollectionViewCell", for: indexPath) as! PlayerCollectionViewCell
          cell.playerNameLabel.text = team?.players[indexPath.row].name
+        if team?.players[indexPath.row].uWeight != 0 {
+            cell.countLabel.text = String(describing: (team?.players[indexPath.row].uWeight)!)
+        }
         
         // Configure the cell
     

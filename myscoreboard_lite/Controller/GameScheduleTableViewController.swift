@@ -15,13 +15,12 @@ class GameScheduleTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        //selectedPlayers.shuffle()
+        createGamePlayList()
         // Register cell classes
         let nib = UINib(nibName: "GameScheduleTableViewCell", bundle: nil)
         tableView?.register(nib, forCellReuseIdentifier: "GameScheduleTableViewCell")
         
-        print("count: \(selectedPlayers.count)")
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,14 +43,51 @@ class GameScheduleTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GameScheduleTableViewCell", for: indexPath) as! GameScheduleTableViewCell
-        cell.player1Label.text = selectedPlayers[0].name
-        cell.player2Label.text = selectedPlayers[1].name
-        cell.player3Label.text = selectedPlayers[2].name
-        cell.player4Label.text = selectedPlayers[3].name
         
         
-
+        cell.player1Label.text = gameByCourt[indexPath.row][0].name
+        cell.player2Label.text = gameByCourt[indexPath.row][1].name
+        cell.player3Label.text = gameByCourt[indexPath.row][2].name
+        cell.player4Label.text = gameByCourt[indexPath.row][3].name
+        
+        
+        cell.courtNumLabel.text = "Court \(indexPath.row + 1)"
+       
+        cell.finishButton.tag = indexPath.row
+        cell.finishButton.addTarget(self, action: #selector(gameFinished(sender:)), for: .touchUpInside)
+       
+        
         return cell
+    }
+    
+    @objc func gameFinished(sender: UIButton){
+        let index = sender.tag
+        for player in gameByCourt[index]{
+            player.uWeight += 1
+            selectedPlayers.append(player)
+        }
+        selectedPlayers = selectedPlayers.shuffle()
+        selectedPlayers.sort { $0.uWeight < $1.uWeight}
+        
+        let newGamePlayers = Array(selectedPlayers[0...3])
+        gameByCourt[index] = newGamePlayers
+        selectedPlayers = Array(selectedPlayers.dropFirst(4))
+        print(selectedPlayers.count)
+        tableView.reloadData()
+       
+    }
+    
+    var playerBasket = [Player]()
+    var gameByCourt = [[Player]]()
+    
+    func createGamePlayList(){
+        selectedPlayers = selectedPlayers.shuffle()
+        for _ in 1...courtcount {
+            let playersInOneGame = Array(selectedPlayers[0...3])
+            gameByCourt.append(playersInOneGame)
+            selectedPlayers = Array(selectedPlayers.dropFirst(4))
+        }
+        
     }
     
     /*
