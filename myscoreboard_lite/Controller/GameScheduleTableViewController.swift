@@ -11,6 +11,7 @@ import UIKit
 class GameScheduleTableViewController: UITableViewController {
  
     var selectedPlayers = [Player]()
+    var playerBasket = [Player]()
     var courtcount: Int = 2
     
     override func viewDidLoad() {
@@ -24,7 +25,7 @@ class GameScheduleTableViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        selectedPlayers = DataSource.sharedInstance.selectedPlayers
+        //selectedPlayers = DataSource.sharedInstance.selectedPlayers
     }
 
     // MARK: - Table view data source
@@ -69,7 +70,7 @@ class GameScheduleTableViewController: UITableViewController {
         tableView.reloadData()
        
     }
-    var gameByCourt = [[Player]]()
+    var gameByCourt = [[Player]]() 
     
     func createGamePlayList(){
         selectedPlayers = selectedPlayers.shuffle()

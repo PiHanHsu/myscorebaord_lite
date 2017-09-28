@@ -57,8 +57,9 @@ class SelectPlayersCollectionViewController: UICollectionViewController, UIColle
         if isPlayingMode{
             selectedPlayers = DataSource.sharedInstance.selectedPlayers
             if selectedPlayers.contains((team?.players[indexPath.row])!){
+                cell.checkMarkImageView.isHidden = false
             }else{
-                cell.isSelected = false
+                 cell.checkMarkImageView.isHidden = true
             }
             if team?.players[indexPath.row].uWeight != 0 {
                 cell.countLabel.text = String(describing: (team?.players[indexPath.row].uWeight)!)
@@ -71,12 +72,13 @@ class SelectPlayersCollectionViewController: UICollectionViewController, UIColle
     // MARK: UICollectionViewDelegate
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+         print("select")
          let player = team?.players[indexPath.row]
          selectedPlayers.append(player!)
     }
     
     override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+         print("deselect")
         let player = team?.players[indexPath.row]
         selectedPlayers = selectedPlayers.filter(){$0 != player!}
     }

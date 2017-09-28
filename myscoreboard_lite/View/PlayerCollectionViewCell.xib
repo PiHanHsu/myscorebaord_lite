@@ -25,12 +25,6 @@
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aR7-5M-hDn">
-                        <rect key="frame" x="100" y="0.0" width="30" height="30.5"/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="aR7-5M-hDn" secondAttribute="height" multiplier="60:61" id="9PR-ui-PkC"/>
-                        </constraints>
-                    </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="eui-bg-G3A">
                         <rect key="frame" x="15" y="0.0" width="200" height="200"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -47,32 +41,35 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="circle_check_filled" translatesAutoresizingMaskIntoConstraints="NO" id="Gtr-dW-Imp" userLabel="CheckMark">
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstItem="eui-bg-G3A" firstAttribute="top" secondItem="cZW-zP-U9B" secondAttribute="top" id="1LG-fg-bXD"/>
-                <constraint firstItem="aR7-5M-hDn" firstAttribute="centerX" secondItem="cZW-zP-U9B" secondAttribute="centerX" id="Pgj-Ks-KfH"/>
                 <constraint firstItem="Cog-GG-1Bh" firstAttribute="top" secondItem="eui-bg-G3A" secondAttribute="bottom" constant="3" id="RKD-8B-j0N"/>
                 <constraint firstItem="eui-bg-G3A" firstAttribute="centerX" secondItem="cZW-zP-U9B" secondAttribute="centerX" id="ZAx-sk-wFn"/>
                 <constraint firstAttribute="trailing" secondItem="BFr-tG-Xp3" secondAttribute="trailing" id="b9T-Zn-DOa"/>
                 <constraint firstItem="Cog-GG-1Bh" firstAttribute="leading" secondItem="cZW-zP-U9B" secondAttribute="leading" constant="3" id="pEc-Xz-C5B"/>
                 <constraint firstItem="BFr-tG-Xp3" firstAttribute="top" secondItem="cZW-zP-U9B" secondAttribute="top" id="rGg-z9-Qpd"/>
                 <constraint firstAttribute="trailing" secondItem="Cog-GG-1Bh" secondAttribute="trailing" constant="3" id="sXb-sE-OQz"/>
-                <constraint firstItem="aR7-5M-hDn" firstAttribute="top" secondItem="cZW-zP-U9B" secondAttribute="top" id="xm6-Lr-54N"/>
                 <constraint firstAttribute="bottom" secondItem="Cog-GG-1Bh" secondAttribute="bottom" constant="3" id="yaa-WZ-QRa"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="R9p-NB-AIe"/>
             <size key="customSize" width="181" height="231"/>
             <connections>
+                <outlet property="checkMarkImageView" destination="Gtr-dW-Imp" id="3kh-qY-PYY"/>
                 <outlet property="countLabel" destination="BFr-tG-Xp3" id="X8T-fy-Cay"/>
                 <outlet property="playerImageView" destination="eui-bg-G3A" id="lX2-4X-OGD"/>
                 <outlet property="playerNameLabel" destination="Cog-GG-1Bh" id="ANP-Ny-Zkc"/>
-                <outlet property="selectedButton" destination="aR7-5M-hDn" id="n3l-YN-GL9"/>
             </connections>
             <point key="canvasLocation" x="-25" y="192"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="circle_check_filled" width="24" height="24"/>
         <image name="user_placeholder" width="100" height="100"/>
     </resources>
 </document>

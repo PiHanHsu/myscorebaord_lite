@@ -12,4 +12,5 @@ class Player : NSObject{
     var imageUrl: String = ""
     var user_id: String = ""
     var uWeight: Int = 0
+    var isSelected = false
 }
