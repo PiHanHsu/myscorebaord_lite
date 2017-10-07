@@ -48,22 +48,24 @@ class SelectPlayersCollectionViewController: UICollectionViewController, UIColle
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return (team?.players.count)!
+        if isPlayingMode{
+            return DataSource.sharedInstance.selectedPlayers.count
+        }else{
+             return (team?.players.count)!
+        }
+       
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlayerCollectionViewCell", for: indexPath) as! PlayerCollectionViewCell
-        cell.playerNameLabel.text = team?.players[indexPath.row].name
-        if isPlayingMode{
-            selectedPlayers = DataSource.sharedInstance.selectedPlayers
-            if selectedPlayers.contains((team?.players[indexPath.row])!){
-                cell.checkMarkImageView.isHidden = false
-            }else{
-                 cell.checkMarkImageView.isHidden = true
-            }
-            if team?.players[indexPath.row].uWeight != 0 {
-                cell.countLabel.text = String(describing: (team?.players[indexPath.row].uWeight)!)
-            }
+        
+        if isPlayingMode {
+             selectedPlayers = DataSource.sharedInstance.selectedPlayers
+            cell.isSelected = false
+            cell.playerNameLabel.text = selectedPlayers[indexPath.row].name
+            cell.countLabel.text = String(describing: (selectedPlayers[indexPath.row].uWeight))
+        }else{
+             cell.playerNameLabel.text = team?.players[indexPath.row].name
         }
        
         return cell
@@ -72,7 +74,7 @@ class SelectPlayersCollectionViewController: UICollectionViewController, UIColle
     // MARK: UICollectionViewDelegate
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-         print("select")
+        
          let player = team?.players[indexPath.row]
          selectedPlayers.append(player!)
     }
