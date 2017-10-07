@@ -12,7 +12,7 @@ class GameScheduleTableViewController: UITableViewController {
  
     var selectedPlayers = [Player]()
     var playerBasket = [Player]()
-    var courtcount: Int = 2
+    var courtCount: Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,12 +22,7 @@ class GameScheduleTableViewController: UITableViewController {
         let nib = UINib(nibName: "GameScheduleTableViewCell", bundle: nil)
         tableView?.register(nib, forCellReuseIdentifier: "GameScheduleTableViewCell")
     }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        //selectedPlayers = DataSource.sharedInstance.selectedPlayers
-    }
-
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -35,7 +30,7 @@ class GameScheduleTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return courtCount
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -74,7 +69,7 @@ class GameScheduleTableViewController: UITableViewController {
     
     func createGamePlayList(){
         selectedPlayers = selectedPlayers.shuffle()
-        for _ in 1...courtcount {
+        for _ in 1...courtCount {
             let playersInOneGame = Array(selectedPlayers[0...3])
             gameByCourt.append(playersInOneGame)
             selectedPlayers = Array(selectedPlayers.dropFirst(4))
@@ -83,18 +78,27 @@ class GameScheduleTableViewController: UITableViewController {
     
     @IBAction func finishGame(_ sender: Any) {
         
-        for player in selectedPlayers {
-            player.uWeight = 0
-        }
-        DataSource.sharedInstance.currentPlayingTeam = nil
-        DataSource.sharedInstance.selectedPlayers = [Player]()
-        
-        for vc in (self.navigationController?.viewControllers ?? []) {
-            if vc is TeamTableViewController {
-                _ = self.navigationController?.popToViewController(vc, animated: true)
-                break
+        let alertController = UIAlertController(title: "結束今日比賽", message: "球員排點紀錄將會重新計算", preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default, handler: {
+            UIAlertAction in
+            for vc in (self.navigationController?.viewControllers ?? []) {
+                if vc is TeamTableViewController {
+                   
+                    for player in DataSource.sharedInstance.selectedPlayers {
+                        player.uWeight = 0
+                    }
+                    DataSource.sharedInstance.currentPlayingTeam = nil
+                    DataSource.sharedInstance.selectedPlayers = [Player]()
+                     _ = self.navigationController?.popToViewController(vc, animated: true)
+                    break
+                }
             }
-        }
+        })
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        alertController.addAction(alertAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
+        
     }
     
     // MARK: - Navigation

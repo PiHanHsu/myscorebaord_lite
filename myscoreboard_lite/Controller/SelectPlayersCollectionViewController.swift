@@ -16,6 +16,7 @@ class SelectPlayersCollectionViewController: UICollectionViewController, UIColle
     var team : Team?
     var selectedPlayers = [Player]()
     var isPlayingMode = false
+    var courtCount: Int = 1
 
     @IBOutlet weak var gameStartBarButton: UIBarButtonItem!
     override func viewDidLoad() {
@@ -92,7 +93,48 @@ class SelectPlayersCollectionViewController: UICollectionViewController, UIColle
         if isPlayingMode {
             self.dismiss(animated: true, completion: nil)
         }else{
-            performSegue(withIdentifier: "StartGame", sender: Any?.self)
+            let alertController = UIAlertController(title: "請選擇場地數", message: nil, preferredStyle: .alert)
+            let oneCourt = UIAlertAction(title: "1", style: .default, handler: {_ in
+                self.courtCount = 1
+                self.performSegue(withIdentifier: "StartGame", sender: Any?.self)
+            })
+            let twoCourts = UIAlertAction(title: "2", style: .default, handler: {_ in
+                self.courtCount = 2
+                self.performSegue(withIdentifier: "StartGame", sender: Any?.self)
+            })
+            let threeCourts = UIAlertAction(title: "3", style: .default, handler: {_ in
+                self.courtCount = 3
+                self.performSegue(withIdentifier: "StartGame", sender: Any?.self)
+            })
+            let fourCourts = UIAlertAction(title: "4", style: .default, handler: {_ in
+                self.courtCount = 4
+                self.performSegue(withIdentifier: "StartGame", sender: Any?.self)
+            })
+            
+            let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+            
+            alertController.addAction(oneCourt)
+            if selectedPlayers.count >= 8 {
+                alertController.addAction(twoCourts)
+            }
+            if selectedPlayers.count >= 12 {
+                alertController.addAction(threeCourts)
+            }
+            if selectedPlayers.count >= 16 {
+                  alertController.addAction(fourCourts)
+            }
+            
+            alertController.addAction(cancelAction)
+            
+            self.present(alertController, animated: true, completion: nil)
+            
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "StartGame" {
+            let vc = segue.destination as! GameScheduleTableViewController
+            vc.courtCount = courtCount
         }
     }
     
