@@ -16,10 +16,9 @@ extension Gradient where Self: UIView {
     func addGradient(){
         let gradientLayer = CAGradientLayer()
        gradientLayer.frame = self.bounds
-        
-       gradientLayer.colors = [UIColor.blue.cgColor, UIColor.white.cgColor]
-        
-           layer.insertSublayer(gradientLayer, at: 0) 
+       gradientLayer.colors = [UIColor.white.cgColor, UIColor.myBlue.cgColor, UIColor.blue.cgColor]
+       
+       layer.insertSublayer(gradientLayer, at: 0)
         
     }
 }

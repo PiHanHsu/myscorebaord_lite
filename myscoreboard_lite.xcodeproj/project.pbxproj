@@ -22,6 +22,7 @@
 		C2654EA41F8BA3FC0037D610 /* DropShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2654EA31F8BA3FC0037D610 /* DropShadow.swift */; };
 		C2654EA61F8BA8970037D610 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2654EA51F8BA8970037D610 /* Gradient.swift */; };
 		C2654EA81F8BA9B30037D610 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2654EA71F8BA9B30037D610 /* GradientView.swift */; };
+		C2654EAA1F8BAD800037D610 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2654EA91F8BAD800037D610 /* Color.swift */; };
 		C295532A1F73A5F000F07229 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29553291F73A5F000F07229 /* Player.swift */; };
 		C295532C1F73A67700F07229 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = C295532B1F73A67700F07229 /* Team.swift */; };
 		C295532E1F73ADDB00F07229 /* Utlis.swift in Sources */ = {isa = PBXBuildFile; fileRef = C295532D1F73ADDB00F07229 /* Utlis.swift */; };
@@ -53,6 +54,7 @@
 		C2654EA31F8BA3FC0037D610 /* DropShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropShadow.swift; sourceTree = "<group>"; };
 		C2654EA51F8BA8970037D610 /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
 		C2654EA71F8BA9B30037D610 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		C2654EA91F8BAD800037D610 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		C29553291F73A5F000F07229 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		C295532B1F73A67700F07229 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		C295532D1F73ADDB00F07229 /* Utlis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utlis.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				C29553291F73A5F000F07229 /* Player.swift */,
 				C295532B1F73A67700F07229 /* Team.swift */,
 				C295532F1F7631D200F07229 /* DataSource.swift */,
+				C2654EA91F8BAD800037D610 /* Color.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				C22D17151F6FBFA90007F398 /* PlayerCollectionViewCell.swift in Sources */,
 				C2654EA21F8BA18E0037D610 /* CapsuleButton.swift in Sources */,
 				C29553321F7637D800F07229 /* TeamTableViewCell.swift in Sources */,
+				C2654EAA1F8BAD800037D610 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
