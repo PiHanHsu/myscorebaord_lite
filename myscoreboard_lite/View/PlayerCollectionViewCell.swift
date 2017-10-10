@@ -18,14 +18,16 @@ class PlayerCollectionViewCell: UICollectionViewCell {
         
         didSet {
             checkMarkImageView.isHidden = !isSelected
-            //playerImageView.layer.borderWidth = isSelected ? 10 : 0
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        //playerImageView.layer.borderColor = UIColor.red.cgColor
         isSelected = false
+    }
+    
+    override func draw(_ rect: CGRect) {
+        playerImageView.roundedView()
     }
 
 }

@@ -22,3 +22,5 @@ extension RoundedView where Self: UIView {
         self.contentMode = .scaleAspectFill
     }
 }
+
+extension UIImageView: RoundedView{}
