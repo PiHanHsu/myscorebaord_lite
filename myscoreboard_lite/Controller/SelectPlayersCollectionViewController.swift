@@ -12,12 +12,14 @@ import SDWebImage
 private let reuseIdentifier = "Cell"
 
 
-class SelectPlayersCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class SelectPlayersCollectionViewController: UICollectionViewController {
     
     var team : Team?
     var selectedPlayers = [Player]()
     var isPlayingMode = false
     var courtCount: Int = 1
+    
+    let sectionInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
 
     @IBOutlet weak var gameStartBarButton: UIBarButtonItem!
     override func viewDidLoad() {
@@ -145,5 +147,42 @@ class SelectPlayersCollectionViewController: UICollectionViewController, UIColle
             vc.courtCount = courtCount
         }
     }
+}
+
+extension SelectPlayersCollectionViewController:  UICollectionViewDelegateFlowLayout{
     
+   
+    
+    // item size
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        var width: CGFloat = 0.0
+        var height: CGFloat = 0.0
+        if self.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClass.compact {
+            
+            width = (self.view.frame.size.width - sectionInsets.left * 5) / 3
+            height = width * 1.3
+        }
+        
+        if self.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClass.regular {
+            width = (self.view.frame.size.width - sectionInsets.left * 7) / 5
+            height = width * 1.1
+        }
+        
+        return CGSize(width: width , height: height)
+    }
+    
+    //insetForSection
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        
+        return sectionInsets
+    }
+    
+    //min line spacing
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return sectionInsets.left
+    }
+
 }
