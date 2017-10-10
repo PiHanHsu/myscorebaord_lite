@@ -35,9 +35,9 @@ class SelectPlayersCollectionViewController: UICollectionViewController {
         
         // set barbutton title
         if isPlayingMode {
-            gameStartBarButton.title = "Continue"
+            gameStartBarButton.title = "繼續比賽"
         }else{
-            gameStartBarButton.title = "Start Game"
+            gameStartBarButton.title = "開始比賽"
         }
     }
     
@@ -91,7 +91,6 @@ class SelectPlayersCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-         print("deselect")
         let player = team?.players[indexPath.row]
         selectedPlayers = selectedPlayers.filter(){$0 != player!}
     }
@@ -124,13 +123,13 @@ class SelectPlayersCollectionViewController: UICollectionViewController {
             let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
             
             alertController.addAction(oneCourt)
-            if selectedPlayers.count >= 8 {
+            if selectedPlayers.count > 8 {
                 alertController.addAction(twoCourts)
             }
-            if selectedPlayers.count >= 12 {
+            if selectedPlayers.count > 12 {
                 alertController.addAction(threeCourts)
             }
-            if selectedPlayers.count >= 16 {
+            if selectedPlayers.count > 16 {
                   alertController.addAction(fourCourts)
             }
             

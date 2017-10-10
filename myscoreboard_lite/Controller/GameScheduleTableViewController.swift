@@ -62,7 +62,6 @@ class GameScheduleTableViewController: UITableViewController {
         let newGamePlayers = Array(selectedPlayers[0...3])
         gameByCourt[index] = newGamePlayers
         selectedPlayers = Array(selectedPlayers.dropFirst(4))
-        print(selectedPlayers.count)
         tableView.reloadData()
        
     }

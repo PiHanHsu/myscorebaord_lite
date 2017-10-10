@@ -163,7 +163,7 @@
                     </collectionView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Select Players" id="vFK-vC-CNY">
-                        <barButtonItem key="rightBarButtonItem" title="Start Game" id="ZaM-Wy-yUQ">
+                        <barButtonItem key="rightBarButtonItem" title="開始比賽" id="ZaM-Wy-yUQ">
                             <connections>
                                 <action selector="startGameBarButtonPressed:" destination="QmZ-FB-Saa" id="K4b-OC-Dca"/>
                             </connections>
@@ -203,12 +203,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Title" id="ds7-uU-Ba0">
-                        <barButtonItem key="leftBarButtonItem" title="Select Players" id="bW6-7G-HmJ">
+                        <barButtonItem key="leftBarButtonItem" title="比賽場次" id="bW6-7G-HmJ">
                             <connections>
                                 <segue destination="NOb-u6-guD" kind="presentation" identifier="SelectPlayersInPlayingMode" id="edS-lh-nu6"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Finish Game" id="A86-jv-BXO">
+                        <barButtonItem key="rightBarButtonItem" title="結束" id="A86-jv-BXO">
                             <connections>
                                 <action selector="finishGame:" destination="3KZ-c6-GUi" id="eI4-0D-9av"/>
                             </connections>
