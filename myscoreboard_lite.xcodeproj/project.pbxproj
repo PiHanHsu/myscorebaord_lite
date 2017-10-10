@@ -37,7 +37,7 @@
 		AE13C042AE61A10861837A14 /* Pods-myscoreboard_lite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myscoreboard_lite.release.xcconfig"; path = "Pods/Target Support Files/Pods-myscoreboard_lite/Pods-myscoreboard_lite.release.xcconfig"; sourceTree = "<group>"; };
 		B9F51C949AB677B0C8B8EE5D /* Pods_myscoreboard_lite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myscoreboard_lite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA2EC27F621DFEF50E88F343 /* Pods-myscoreboard_lite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myscoreboard_lite.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myscoreboard_lite/Pods-myscoreboard_lite.debug.xcconfig"; sourceTree = "<group>"; };
-		C22D16F01F6FAFC80007F398 /* myscoreboard_lite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myscoreboard_lite.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C22D16F01F6FAFC80007F398 /* 羽球排點.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "羽球排點.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C22D16F31F6FAFC80007F398 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C22D16F81F6FAFC80007F398 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C22D16FA1F6FAFC80007F398 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -106,7 +106,7 @@
 		C22D16F11F6FAFC80007F398 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C22D16F01F6FAFC80007F398 /* myscoreboard_lite.app */,
+				C22D16F01F6FAFC80007F398 /* 羽球排點.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -210,7 +210,7 @@
 			);
 			name = myscoreboard_lite;
 			productName = myscoreboard_lite;
-			productReference = C22D16F01F6FAFC80007F398 /* myscoreboard_lite.app */;
+			productReference = C22D16F01F6FAFC80007F398 /* 羽球排點.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -476,7 +476,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "PiHan.myscoreboard-lite";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "羽球排點";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -493,7 +493,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "PiHan.myscoreboard-lite";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "羽球排點";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
