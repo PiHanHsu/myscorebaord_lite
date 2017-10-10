@@ -17,7 +17,7 @@ extension Gradient where Self: UIView {
         let gradientLayer = CAGradientLayer()
        gradientLayer.frame = self.bounds
        gradientLayer.colors = [UIColor.white.cgColor, UIColor.myBlue.cgColor, UIColor.blue.cgColor]
-       gradientLayer.locations = [0.0, 0.2, 0.95]
+       gradientLayer.locations = [0.0, 0.2, 2.0]
        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
        gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
         
