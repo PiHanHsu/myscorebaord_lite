@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 private let reuseIdentifier = "Cell"
 
@@ -21,6 +22,7 @@ class SelectPlayersCollectionViewController: UICollectionViewController, UIColle
     @IBOutlet weak var gameStartBarButton: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.setNavigationBarHidden(false, animated: false)
         DataSource.sharedInstance.currentPlayingTeam = team
         // Register cell classes
         let nib = UINib(nibName: "PlayerCollectionViewCell", bundle: nil)
@@ -65,8 +67,14 @@ class SelectPlayersCollectionViewController: UICollectionViewController, UIColle
             cell.isSelected = false
             cell.playerNameLabel.text = selectedPlayers[indexPath.row].name
             cell.countLabel.text = String(describing: (selectedPlayers[indexPath.row].uWeight))
+            let imageURL = URL(string: selectedPlayers[indexPath.row].imageUrl)
+            cell.playerImageView.sd_setImage(with: imageURL, placeholderImage: UIImage(named: "user_placeholder"), options: .continueInBackground, progress: nil, completed: nil)
         }else{
-             cell.playerNameLabel.text = team?.players[indexPath.row].name
+            cell.playerNameLabel.text = team?.players[indexPath.row].name
+            cell.playerImageView.sd_setShowActivityIndicatorView(true)
+            cell.playerImageView.sd_setIndicatorStyle(.gray)
+            let imageURL = URL(string: (team?.players[indexPath.row].imageUrl)!)
+            cell.playerImageView.sd_setImage(with: imageURL, placeholderImage: UIImage(named: "user_placeholder"), options: .continueInBackground, progress: nil, completed: nil)
         }
        
         return cell

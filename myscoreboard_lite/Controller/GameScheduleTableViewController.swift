@@ -16,6 +16,7 @@ class GameScheduleTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.setNavigationBarHidden(false, animated: false)
         selectedPlayers = DataSource.sharedInstance.selectedPlayers
         createGamePlayList()
         // Register cell classes

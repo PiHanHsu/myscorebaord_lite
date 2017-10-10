@@ -8,14 +8,9 @@
 
 import UIKit
 
-class RoundedImageView: UIImageView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+class RoundedImageView: UIImageView, RoundedView{
+    
+    override func awakeFromNib() {
+        self.roundedView()
     }
-    */
-
 }
