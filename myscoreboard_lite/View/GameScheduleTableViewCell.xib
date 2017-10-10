@@ -42,7 +42,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="137.5" height="132.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player1 FirstName" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Khg-J9-ah5">
-                                                <rect key="frame" x="0.0" y="0.0" width="137.5" height="56.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="137.5" height="56"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -51,7 +51,7 @@
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player2" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="I9E-sL-VtD">
-                                                <rect key="frame" x="0.0" y="76.5" width="137.5" height="56"/>
+                                                <rect key="frame" x="0.0" y="76" width="137.5" height="56.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -74,7 +74,7 @@
                                         <rect key="frame" x="197.5" y="0.0" width="152.5" height="132.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player3 LastName" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="0Oz-5v-hYs">
-                                                <rect key="frame" x="0.0" y="0.0" width="152.5" height="56.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="152.5" height="56"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -83,7 +83,7 @@
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player4" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Gbg-OJ-f78">
-                                                <rect key="frame" x="0.0" y="76.5" width="152.5" height="56"/>
+                                                <rect key="frame" x="0.0" y="76" width="152.5" height="56.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -94,7 +94,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bY5-JS-8Iw" customClass="CapsuleButton" customModule="myscoreboard_lite" customModuleProvider="target">
-                                        <rect key="frame" x="370" y="51.5" width="90" height="30"/>
+                                        <rect key="frame" x="370" y="51" width="90" height="30"/>
                                         <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="70" id="Zlr-Z9-uS5">
@@ -111,6 +111,7 @@
                         <variation key="heightClass=regular-widthClass=regular" spacing="20"/>
                     </stackView>
                 </subviews>
+                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstItem="mvO-c3-Zgl" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" multiplier="0.75" id="0Qo-DQ-ox2"/>
                     <constraint firstAttribute="trailingMargin" secondItem="PK7-T6-u26" secondAttribute="trailing" id="1xL-2Q-9m9"/>
