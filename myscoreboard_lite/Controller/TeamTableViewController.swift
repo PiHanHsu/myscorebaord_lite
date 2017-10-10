@@ -12,12 +12,9 @@ class TeamTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-navigationController?.setNavigationBarHidden(false, animated: false)
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        navigationController?.setNavigationBarHidden(false, animated: false)
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
+        
     }
 
     override func didReceiveMemoryWarning() {

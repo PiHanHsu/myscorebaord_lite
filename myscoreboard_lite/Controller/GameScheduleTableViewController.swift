@@ -17,6 +17,7 @@ class GameScheduleTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(false, animated: false)
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
         selectedPlayers = DataSource.sharedInstance.selectedPlayers
         createGamePlayList()
         // Register cell classes
@@ -32,6 +33,10 @@ class GameScheduleTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return courtCount
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return (self.view.frame.size.height - (self.navigationController?.navigationBar.frame.size.height)! ) / 4.0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
