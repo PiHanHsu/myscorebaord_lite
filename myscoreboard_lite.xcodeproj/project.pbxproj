@@ -21,7 +21,6 @@
 		C2654EA21F8BA18E0037D610 /* CapsuleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2654EA11F8BA18E0037D610 /* CapsuleButton.swift */; };
 		C2654EA41F8BA3FC0037D610 /* DropShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2654EA31F8BA3FC0037D610 /* DropShadow.swift */; };
 		C2654EA61F8BA8970037D610 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2654EA51F8BA8970037D610 /* Gradient.swift */; };
-		C2654EA81F8BA9B30037D610 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2654EA71F8BA9B30037D610 /* GradientView.swift */; };
 		C2654EAA1F8BAD800037D610 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2654EA91F8BAD800037D610 /* Color.swift */; };
 		C2654EB01F8CC7E20037D610 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2654EAF1F8CC7E20037D610 /* RoundedView.swift */; };
 		C295532A1F73A5F000F07229 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29553291F73A5F000F07229 /* Player.swift */; };
@@ -54,7 +53,6 @@
 		C2654EA11F8BA18E0037D610 /* CapsuleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleButton.swift; sourceTree = "<group>"; };
 		C2654EA31F8BA3FC0037D610 /* DropShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropShadow.swift; sourceTree = "<group>"; };
 		C2654EA51F8BA8970037D610 /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
-		C2654EA71F8BA9B30037D610 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		C2654EA91F8BAD800037D610 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		C2654EAF1F8CC7E20037D610 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		C29553291F73A5F000F07229 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
@@ -150,7 +148,6 @@
 				C29553331F76451800F07229 /* GameScheduleTableViewCell.swift */,
 				C29553341F76451800F07229 /* GameScheduleTableViewCell.xib */,
 				C2654EA11F8BA18E0037D610 /* CapsuleButton.swift */,
-				C2654EA71F8BA9B30037D610 /* GradientView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -324,7 +321,6 @@
 				C22D17101F6FB1CF0007F398 /* SelectPlayersCollectionViewController.swift in Sources */,
 				C22D16F41F6FAFC80007F398 /* AppDelegate.swift in Sources */,
 				C295532C1F73A67700F07229 /* Team.swift in Sources */,
-				C2654EA81F8BA9B30037D610 /* GradientView.swift in Sources */,
 				C295532A1F73A5F000F07229 /* Player.swift in Sources */,
 				C22D170E1F6FB1AF0007F398 /* TeamTableViewController.swift in Sources */,
 				C2654EA61F8BA8970037D610 /* Gradient.swift in Sources */,

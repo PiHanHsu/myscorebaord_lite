@@ -19,6 +19,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.addGradient()
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
 

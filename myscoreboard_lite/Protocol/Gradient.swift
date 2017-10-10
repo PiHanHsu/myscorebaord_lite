@@ -22,6 +22,7 @@ extension Gradient where Self: UIView {
        gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
         
        layer.insertSublayer(gradientLayer, at: 0)
-        
     }
 }
+
+extension UIView: Gradient{}
