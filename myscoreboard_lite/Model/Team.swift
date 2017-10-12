@@ -17,7 +17,6 @@ struct Team {
     
     init(data:JSON) {
         self.teamImageUrl = data["team"]["logo_original_url"].stringValue
-        print("team url: \(teamImageUrl)")
         self.name = data["team"]["name"].stringValue
         self.teamId = data["team"]["id"].intValue
         
