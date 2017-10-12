@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C213177D1F8FED62004BECD4 /* GameHistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C213177C1F8FED62004BECD4 /* GameHistoryTableViewController.swift */; };
 		C22D16F41F6FAFC80007F398 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22D16F31F6FAFC80007F398 /* AppDelegate.swift */; };
 		C22D16F91F6FAFC80007F398 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C22D16F71F6FAFC80007F398 /* Main.storyboard */; };
 		C22D16FB1F6FAFC80007F398 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C22D16FA1F6FAFC80007F398 /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 		AE13C042AE61A10861837A14 /* Pods-myscoreboard_lite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myscoreboard_lite.release.xcconfig"; path = "Pods/Target Support Files/Pods-myscoreboard_lite/Pods-myscoreboard_lite.release.xcconfig"; sourceTree = "<group>"; };
 		B9F51C949AB677B0C8B8EE5D /* Pods_myscoreboard_lite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myscoreboard_lite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA2EC27F621DFEF50E88F343 /* Pods-myscoreboard_lite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myscoreboard_lite.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myscoreboard_lite/Pods-myscoreboard_lite.debug.xcconfig"; sourceTree = "<group>"; };
+		C213177C1F8FED62004BECD4 /* GameHistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHistoryTableViewController.swift; sourceTree = "<group>"; };
 		C22D16F01F6FAFC80007F398 /* 羽球排點.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "羽球排點.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C22D16F31F6FAFC80007F398 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C22D16F81F6FAFC80007F398 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				C22D170D1F6FB1AF0007F398 /* TeamTableViewController.swift */,
 				C22D170F1F6FB1CF0007F398 /* SelectPlayersCollectionViewController.swift */,
 				C22D17111F6FB2E10007F398 /* GameScheduleTableViewController.swift */,
+				C213177C1F8FED62004BECD4 /* GameHistoryTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				C29553351F76451800F07229 /* GameScheduleTableViewCell.swift in Sources */,
 				C2654EA41F8BA3FC0037D610 /* DropShadow.swift in Sources */,
 				C29553301F7631D200F07229 /* DataSource.swift in Sources */,
+				C213177D1F8FED62004BECD4 /* GameHistoryTableViewController.swift in Sources */,
 				C22D17151F6FBFA90007F398 /* PlayerCollectionViewCell.swift in Sources */,
 				C2654EA21F8BA18E0037D610 /* CapsuleButton.swift in Sources */,
 				C29553321F7637D800F07229 /* TeamTableViewCell.swift in Sources */,

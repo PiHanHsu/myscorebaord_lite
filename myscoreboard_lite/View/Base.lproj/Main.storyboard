@@ -211,7 +211,7 @@
             </objects>
             <point key="canvasLocation" x="1665.625" y="131.8359375"/>
         </scene>
-        <!--Title-->
+        <!--對戰組合-->
         <scene sceneID="K2t-zb-Tr7">
             <objects>
                 <tableViewController id="3KZ-c6-GUi" customClass="GameScheduleTableViewController" customModule="羽球排點" customModuleProvider="target" sceneMemberID="viewController">
@@ -224,15 +224,15 @@
                             <outlet property="delegate" destination="3KZ-c6-GUi" id="CqZ-HD-KaI"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Title" id="ds7-uU-Ba0">
-                        <barButtonItem key="leftBarButtonItem" title="比賽場次" id="bW6-7G-HmJ">
-                            <connections>
-                                <segue destination="NOb-u6-guD" kind="presentation" identifier="SelectPlayersInPlayingMode" id="edS-lh-nu6"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="結束" id="A86-jv-BXO">
+                    <navigationItem key="navigationItem" title="對戰組合" id="ds7-uU-Ba0">
+                        <barButtonItem key="leftBarButtonItem" title="結束本日比賽" id="A86-jv-BXO">
                             <connections>
                                 <action selector="finishGame:" destination="3KZ-c6-GUi" id="eI4-0D-9av"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="本日記錄" id="Tdh-Uq-8vg">
+                            <connections>
+                                <segue destination="QQG-6z-SBm" kind="show" identifier="GameHistory" id="LaI-Do-S5f"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -240,6 +240,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wxa-Y5-evJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2314" y="132"/>
+        </scene>
+        <!--對戰組合紀錄-->
+        <scene sceneID="q4S-O6-gCG">
+            <objects>
+                <tableViewController id="QQG-6z-SBm" customClass="GameHistoryTableViewController" customModule="羽球排點" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="vSX-o3-laY">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="HUc-jR-MVI">
+                                <rect key="frame" x="0.0" y="28" width="768" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HUc-jR-MVI" id="Zg2-ZC-8ch">
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="QQG-6z-SBm" id="hcQ-xe-JYP"/>
+                            <outlet property="delegate" destination="QQG-6z-SBm" id="ZRz-Kp-d6N"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="對戰組合紀錄" id="NZ5-ET-3BO">
+                        <barButtonItem key="rightBarButtonItem" title="出賽場次統計" id="ovx-2q-5mV">
+                            <connections>
+                                <segue destination="NOb-u6-guD" kind="presentation" identifier="PlayGamesCount" id="vfC-hx-gVh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X2X-Sy-eIG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2969" y="132"/>
         </scene>
         <!--SelectPlayers-->
         <scene sceneID="qyd-wJ-6K6">
@@ -249,7 +284,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fHc-TH-HxZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2751" y="830"/>
+            <point key="canvasLocation" x="3469" y="843"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3Xu-m9-pbx">
@@ -285,7 +320,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YTO-nA-Jvy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2313" y="830"/>
+            <point key="canvasLocation" x="2969" y="843"/>
         </scene>
     </scenes>
 </document>

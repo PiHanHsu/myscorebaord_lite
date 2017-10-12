@@ -13,6 +13,8 @@ class GameScheduleTableViewController: UITableViewController {
     var selectedPlayers = [Player]()
     var playerBasket = [Player]()
     var courtCount: Int = 1
+    var gameByCourt = [[Player]]()
+    var gameHistory = [[Player]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +59,7 @@ class GameScheduleTableViewController: UITableViewController {
     
     @objc func gameFinished(sender: UIButton){
         let index = sender.tag
+        gameHistory.append(gameByCourt[index])
         for player in gameByCourt[index]{
             player.uWeight += 1
             selectedPlayers.append(player)
@@ -70,7 +73,7 @@ class GameScheduleTableViewController: UITableViewController {
         tableView.reloadData()
        
     }
-    var gameByCourt = [[Player]]() 
+    
     
     func createGamePlayList(){
         selectedPlayers = selectedPlayers.shuffle()
@@ -109,11 +112,9 @@ class GameScheduleTableViewController: UITableViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "SelectPlayersInPlayingMode" {
-            let nav = segue.destination as! UINavigationController
-            let vc =  nav.topViewController as! SelectPlayersCollectionViewController
-            vc.team = DataSource.sharedInstance.currentPlayingTeam
-            vc.isPlayingMode = true
+        if segue.identifier == "GameHistory" {
+            let vc =  segue.destination as! GameHistoryTableViewController
+            vc.gameHistory = gameHistory
         }
     }
     
