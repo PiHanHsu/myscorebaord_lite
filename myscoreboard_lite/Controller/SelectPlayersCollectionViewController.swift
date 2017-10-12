@@ -102,40 +102,50 @@ class SelectPlayersCollectionViewController: UICollectionViewController {
         if isPlayingMode {
             self.dismiss(animated: true, completion: nil)
         }else{
-            let alertController = UIAlertController(title: "請選擇場地數", message: nil, preferredStyle: .alert)
-            let oneCourt = UIAlertAction(title: "1", style: .default, handler: {_ in
-                self.courtCount = 1
-                self.performSegue(withIdentifier: "StartGame", sender: Any?.self)
-            })
-            let twoCourts = UIAlertAction(title: "2", style: .default, handler: {_ in
-                self.courtCount = 2
-                self.performSegue(withIdentifier: "StartGame", sender: Any?.self)
-            })
-            let threeCourts = UIAlertAction(title: "3", style: .default, handler: {_ in
-                self.courtCount = 3
-                self.performSegue(withIdentifier: "StartGame", sender: Any?.self)
-            })
-            let fourCourts = UIAlertAction(title: "4", style: .default, handler: {_ in
-                self.courtCount = 4
-                self.performSegue(withIdentifier: "StartGame", sender: Any?.self)
-            })
+            if selectedPlayers.count < 4 {
+                 let alertController = UIAlertController(title: "至少選擇4位選手才能開始比賽", message: nil, preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true, completion: nil)
+            }
             
-            let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
-            
-            alertController.addAction(oneCourt)
             if selectedPlayers.count > 8 {
+                let alertController = UIAlertController(title: "請選擇場地數", message: nil, preferredStyle: .alert)
+                let oneCourt = UIAlertAction(title: "1", style: .default, handler: {_ in
+                    self.courtCount = 1
+                    self.performSegue(withIdentifier: "StartGame", sender: Any?.self)
+                })
+                let twoCourts = UIAlertAction(title: "2", style: .default, handler: {_ in
+                    self.courtCount = 2
+                    self.performSegue(withIdentifier: "StartGame", sender: Any?.self)
+                })
+                let threeCourts = UIAlertAction(title: "3", style: .default, handler: {_ in
+                    self.courtCount = 3
+                    self.performSegue(withIdentifier: "StartGame", sender: Any?.self)
+                })
+                let fourCourts = UIAlertAction(title: "4", style: .default, handler: {_ in
+                    self.courtCount = 4
+                    self.performSegue(withIdentifier: "StartGame", sender: Any?.self)
+                })
+                
+                let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+                
+                alertController.addAction(oneCourt)
                 alertController.addAction(twoCourts)
-            }
-            if selectedPlayers.count > 12 {
-                alertController.addAction(threeCourts)
-            }
-            if selectedPlayers.count > 16 {
-                  alertController.addAction(fourCourts)
-            }
+                alertController.addAction(cancelAction)
+                
+                if selectedPlayers.count > 12 {
+                    alertController.addAction(threeCourts)
+                }
+                if selectedPlayers.count > 16 {
+                    alertController.addAction(fourCourts)
+                }
             
-            alertController.addAction(cancelAction)
-            
-            self.present(alertController, animated: true, completion: nil)
+                self.present(alertController, animated: true, completion: nil)
+                
+            }else{
+                self.performSegue(withIdentifier: "StartGame", sender: Any?.self)
+            }
             
         }
     }
