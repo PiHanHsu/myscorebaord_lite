@@ -42,11 +42,7 @@ class GameHistoryTableViewController: UITableViewController {
         cell.player3Label.text = gameHistory[indexPath.row][2].name
         cell.player4Label.text = gameHistory[indexPath.row][3].name
         cell.finishButton.isHidden = true
-        cell.courtNumLabel.text = ""
-        if cell.player1Label.text == "" {
-            print("error")
-            print("game match: \(gameHistory[indexPath.row])" )
-        }
+        cell.courtNumLabel.text = " "
         
         return cell
     }
