@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 import SDWebImage
 
 class TeamTableViewController: UITableViewController {
@@ -61,6 +62,22 @@ class TeamTableViewController: UITableViewController {
         return 120
     }
 
+    @IBAction func logout(_ sender: Any) {
+        let params = ["auth_token" : DataSource.sharedInstance.auth_token]
+        
+        Alamofire.request("https://product.myscoreboardapp.com/api/v1/logout", method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON{response in
+            if response.result.isSuccess{
+                DataSource.sharedInstance = DataSource()
+                self.navigationController?.popViewController(animated: true)
+                
+            }else{
+                print("can't logout")
+            }
+        }
+        
+    }
+    
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

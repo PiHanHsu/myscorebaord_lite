@@ -20,16 +20,14 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addGradient()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        emailTextField.text = ""
+        passwordTextField.text = ""
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    
     
     @IBAction func loginButtonPressed(_ sender: Any) {
         
@@ -45,16 +43,17 @@ class LoginViewController: UIViewController {
                 if let user_id = player["user_id"].int {
                     if let auth_token = player["auth_token"].string{
                         self.getTeamList(user_id, token: auth_token)
+                        DataSource.sharedInstance.auth_token = auth_token
                     }
                     
                 }
             }else{
-                print("error")
+                print("can't login")
             }
         }
     }
     
-    func getTeamList(_ userID: Int, token token: String){
+    func getTeamList(_ userID: Int, token: String){
         
         let params = ["auth_token" : token,
                       "user_id" : userID] as [String : Any]

@@ -147,7 +147,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="選擇球隊" id="F0F-sT-b6J">
-                        <barButtonItem key="leftBarButtonItem" title="登出" id="OWs-6r-w4H"/>
+                        <barButtonItem key="leftBarButtonItem" title="登出" id="OWs-6r-w4H">
+                            <connections>
+                                <action selector="logout:" destination="f0a-kX-Rbu" id="xzw-yY-1f9"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="QmZ-FB-Saa" kind="show" identifier="SelectPlayers" id="nCg-E6-O1V"/>
@@ -171,17 +175,7 @@
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="clL-3P-LlG" customClass="PlayerCollectionViewCell" customModule="羽球排點" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </view>
-                                <size key="customSize" width="150" height="150"/>
-                            </collectionViewCell>
-                        </cells>
+                        <cells/>
                         <connections>
                             <outlet property="dataSource" destination="QmZ-FB-Saa" id="ecS-rQ-Ge2"/>
                             <outlet property="delegate" destination="QmZ-FB-Saa" id="8A9-lM-hdg"/>
@@ -213,16 +207,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="lAl-fZ-gFL">
-                                <rect key="frame" x="0.0" y="28" width="768" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lAl-fZ-gFL" id="7fg-tY-Xu9">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="3KZ-c6-GUi" id="bCo-dW-ETQ"/>
                             <outlet property="delegate" destination="3KZ-c6-GUi" id="CqZ-HD-KaI"/>
