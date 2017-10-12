@@ -19,7 +19,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="myscoreboard_lite" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="羽球排點" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -48,7 +48,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8HF-bu-fXd" customClass="CapsuleButton" customModule="myscoreboard_lite" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8HF-bu-fXd" customClass="CapsuleButton" customModule="羽球排點" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="186" width="300" height="48"/>
                                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -88,34 +88,55 @@
         <!--Team Table View Controller-->
         <scene sceneID="09h-JM-EZK">
             <objects>
-                <tableViewController id="f0a-kX-Rbu" customClass="TeamTableViewController" customModule="myscoreboard_lite" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="f0a-kX-Rbu" customClass="TeamTableViewController" customModule="羽球排點" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="NXV-7o-IRW">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TeamTableViewCell" editingAccessoryType="detailDisclosureButton" id="Fd1-nA-py9" customClass="TeamTableViewCell" customModule="myscoreboard_lite" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="768" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TeamTableViewCell" editingAccessoryType="detailDisclosureButton" rowHeight="120" id="Fd1-nA-py9" customClass="TeamTableViewCell" customModule="羽球排點" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="768" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fd1-nA-py9" id="bPg-ya-S88">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="119.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ciw-k2-PrX">
-                                            <rect key="frame" x="58" y="11.5" width="53.5" height="21"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n8B-lo-L5T">
+                                            <rect key="frame" x="8" y="10" width="100" height="100"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="100" id="1Nf-9j-xKF"/>
+                                                <constraint firstAttribute="height" constant="100" id="9Vq-AR-7eo"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="球隊人數：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ur-SD-nG3">
+                                            <rect key="frame" x="136" y="89" width="87" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ciw-k2-PrX">
+                                            <rect key="frame" x="136" y="45" width="78" height="31.5"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="ciw-k2-PrX" firstAttribute="centerY" secondItem="bPg-ya-S88" secondAttribute="centerY" id="94s-5P-ILN"/>
-                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ciw-k2-PrX" secondAttribute="trailingMargin" id="Hpq-50-Qhg"/>
-                                        <constraint firstItem="ciw-k2-PrX" firstAttribute="leading" secondItem="bPg-ya-S88" secondAttribute="leadingMargin" constant="50" id="THX-pb-mMr"/>
+                                        <constraint firstItem="n8B-lo-L5T" firstAttribute="centerY" secondItem="bPg-ya-S88" secondAttribute="centerY" id="CEB-UG-L7P"/>
+                                        <constraint firstItem="ciw-k2-PrX" firstAttribute="centerY" secondItem="n8B-lo-L5T" secondAttribute="centerY" id="EsL-67-KVB"/>
+                                        <constraint firstItem="ciw-k2-PrX" firstAttribute="leading" secondItem="n8B-lo-L5T" secondAttribute="trailing" constant="28" id="R0m-uw-ZZI"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ciw-k2-PrX" secondAttribute="trailing" constant="20" symbolic="YES" id="Vcz-PG-0bJ"/>
+                                        <constraint firstItem="7ur-SD-nG3" firstAttribute="leading" secondItem="ciw-k2-PrX" secondAttribute="leading" id="bth-02-l1M"/>
+                                        <constraint firstItem="n8B-lo-L5T" firstAttribute="leading" secondItem="bPg-ya-S88" secondAttribute="leadingMargin" id="dfL-Jb-A5S"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7ur-SD-nG3" secondAttribute="trailing" constant="20" symbolic="YES" id="g6I-xm-mW9"/>
+                                        <constraint firstItem="7ur-SD-nG3" firstAttribute="bottom" secondItem="n8B-lo-L5T" secondAttribute="bottom" id="jQV-XX-bhH"/>
+                                        <constraint firstItem="7ur-SD-nG3" firstAttribute="leading" secondItem="n8B-lo-L5T" secondAttribute="trailing" constant="28" id="pAH-hC-MPQ"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="memberCountLabel" destination="7ur-SD-nG3" id="8fd-jH-9Xw"/>
                                     <outlet property="nameLabel" destination="ciw-k2-PrX" id="ZAA-FO-Qwm"/>
+                                    <outlet property="teamImageView" destination="n8B-lo-L5T" id="gaN-7F-yoj"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -130,12 +151,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uCl-99-ydL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="958" y="132"/>
+            <point key="canvasLocation" x="957.8125" y="131.8359375"/>
         </scene>
         <!--Select Players-->
         <scene sceneID="e1j-oP-J0A">
             <objects>
-                <collectionViewController storyboardIdentifier="SelectPlayers" id="QmZ-FB-Saa" customClass="SelectPlayersCollectionViewController" customModule="myscoreboard_lite" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="SelectPlayers" id="QmZ-FB-Saa" customClass="SelectPlayersCollectionViewController" customModule="羽球排點" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Iie-dh-CqR">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -147,7 +168,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="clL-3P-LlG" customClass="PlayerCollectionViewCell" customModule="myscoreboard_lite" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="clL-3P-LlG" customClass="PlayerCollectionViewCell" customModule="羽球排點" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -183,7 +204,7 @@
         <!--Title-->
         <scene sceneID="K2t-zb-Tr7">
             <objects>
-                <tableViewController id="3KZ-c6-GUi" customClass="GameScheduleTableViewController" customModule="myscoreboard_lite" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="3KZ-c6-GUi" customClass="GameScheduleTableViewController" customModule="羽球排點" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="5c4-xb-L3M">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

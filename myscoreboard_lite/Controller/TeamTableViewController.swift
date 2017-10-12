@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class TeamTableViewController: UITableViewController {
 
@@ -38,10 +39,13 @@ class TeamTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TeamTableViewCell", for: indexPath) as! TeamTableViewCell
         let teams = DataSource.sharedInstance.teams
+        let imageURL = URL(string: teams[indexPath.row].teamImageUrl)
         
         cell.nameLabel.text = teams[indexPath.row].name
-        
-        // Configure the cell...
+        cell.memberCountLabel.text = "球隊人數： \(teams[indexPath.row].players.count)"
+        cell.teamImageView.sd_setShowActivityIndicatorView(true)
+        cell.teamImageView.sd_setIndicatorStyle(.gray)
+        cell.teamImageView.sd_setImage(with: imageURL, placeholderImage: UIImage(named: "user_placeholder"), options: .continueInBackground, completed: nil)
 
         return cell
     }
@@ -54,7 +58,7 @@ class TeamTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 56
+        return 120
     }
 
     /*
