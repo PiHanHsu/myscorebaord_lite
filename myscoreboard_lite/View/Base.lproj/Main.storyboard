@@ -67,9 +67,19 @@
                                     <constraint firstAttribute="width" constant="300" id="SHv-Ta-neR"/>
                                 </constraints>
                             </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="iJN-Bl-bVg">
+                                <rect key="frame" x="365.5" y="493.5" width="37" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="37" id="jJD-gw-CeQ"/>
+                                    <constraint firstAttribute="height" constant="37" id="rsK-5L-eX9"/>
+                                </constraints>
+                                <color key="color" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="iJN-Bl-bVg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="67U-jc-e6f"/>
+                            <constraint firstItem="iJN-Bl-bVg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Mwd-Z2-uNY"/>
                             <constraint firstItem="Bn8-7h-47q" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="aai-95-oKY"/>
                             <constraint firstItem="Bn8-7h-47q" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="u6t-kX-v3S"/>
                         </constraints>
@@ -77,7 +87,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="K3x-Fc-xMd"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="iJN-Bl-bVg" id="PGE-N2-FQp"/>
                         <outlet property="emailTextField" destination="hen-5e-sb9" id="4Zm-bh-Gtz"/>
+                        <outlet property="loginButton" destination="8HF-bu-fXd" id="Ay1-IK-axC"/>
                         <outlet property="passwordTextField" destination="Sf6-uh-SNs" id="zou-Hw-Rp9"/>
                         <segue destination="f0a-kX-Rbu" kind="show" identifier="GoToTeamsPage" id="xq7-9A-MPt"/>
                     </connections>
