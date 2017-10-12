@@ -85,7 +85,7 @@
             </objects>
             <point key="canvasLocation" x="303.125" y="132.421875"/>
         </scene>
-        <!--Team Table View Controller-->
+        <!--選擇球隊-->
         <scene sceneID="09h-JM-EZK">
             <objects>
                 <tableViewController id="f0a-kX-Rbu" customClass="TeamTableViewController" customModule="羽球排點" customModuleProvider="target" sceneMemberID="viewController">
@@ -145,6 +145,9 @@
                             <outlet property="delegate" destination="f0a-kX-Rbu" id="wRX-aB-STI"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="選擇球隊" id="F0F-sT-b6J">
+                        <barButtonItem key="leftBarButtonItem" title="登出" id="OWs-6r-w4H"/>
+                    </navigationItem>
                     <connections>
                         <segue destination="QmZ-FB-Saa" kind="show" identifier="SelectPlayers" id="nCg-E6-O1V"/>
                     </connections>
