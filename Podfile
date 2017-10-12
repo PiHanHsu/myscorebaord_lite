@@ -7,5 +7,6 @@ target 'myscoreboard_lite' do
   pod 'Alamofire'
   pod 'SwiftyJSON'
   pod 'SDWebImage' 
-
+  pod 'IQKeyboardManagerSwift', '5.0.0'
+  
 end
