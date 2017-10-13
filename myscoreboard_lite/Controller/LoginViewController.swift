@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 
 class LoginViewController: UIViewController {
-
+    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -33,6 +33,26 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginButtonPressed(_ sender: Any) {
         
+        let reachability = Reachability()!
+        reachability.whenReachable = { reachability in
+            if reachability.connection == .wifi {
+                print("Reachable via WiFi")
+            } else {
+                print("Reachable via Cellular")
+            }
+        }
+        
+        //TODO: add alert when no internet
+        reachability.whenUnreachable = { _ in
+            print("Not reachable")
+        }
+        
+        do {
+            try reachability.startNotifier()
+        } catch {
+            print("Unable to start notifier")
+        }
+        
         activityIndicator.startAnimating()
         loginButton.isEnabled = false
         
@@ -40,17 +60,17 @@ class LoginViewController: UIViewController {
         let password = passwordTextField.text!.trim()
         
         let params = ["email" : email,
-                  "password" : password]
+                      "password" : password]
         Alamofire.request("https://product.myscoreboardapp.com/api/v1/login", method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).validate().responseJSON{response in
-           
+            
             if response.result.isSuccess{
                 
                 let player = JSON(response.result.value!)
-               
+                
                 if let user_id = player["user_id"].int {
                     if let auth_token = player["auth_token"].string{
                         self.getTeamList(user_id, token: auth_token)
-                DataSource.sharedInstance.auth_token = auth_token
+                        DataSource.sharedInstance.auth_token = auth_token
                     }
                 }
             }else{
@@ -60,7 +80,7 @@ class LoginViewController: UIViewController {
                 })
                 alertController.addAction(okAction)
                 self.present(alertController, animated: true, completion: nil)
-               
+                
             }
             self.loginButton.isEnabled = true
         }
@@ -87,5 +107,5 @@ class LoginViewController: UIViewController {
             self.loginButton.isEnabled = true
         }
     }
-
+    
 }

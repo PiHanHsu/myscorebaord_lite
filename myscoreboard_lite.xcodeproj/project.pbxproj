@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C213177D1F8FED62004BECD4 /* GameHistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C213177C1F8FED62004BECD4 /* GameHistoryTableViewController.swift */; };
+		C213179F1F90AA6D004BECD4 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C213179E1F90AA6D004BECD4 /* Reachability.swift */; };
 		C22D16F41F6FAFC80007F398 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22D16F31F6FAFC80007F398 /* AppDelegate.swift */; };
 		C22D16F91F6FAFC80007F398 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C22D16F71F6FAFC80007F398 /* Main.storyboard */; };
 		C22D16FB1F6FAFC80007F398 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C22D16FA1F6FAFC80007F398 /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 		B9F51C949AB677B0C8B8EE5D /* Pods_myscoreboard_lite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myscoreboard_lite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA2EC27F621DFEF50E88F343 /* Pods-myscoreboard_lite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myscoreboard_lite.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myscoreboard_lite/Pods-myscoreboard_lite.debug.xcconfig"; sourceTree = "<group>"; };
 		C213177C1F8FED62004BECD4 /* GameHistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHistoryTableViewController.swift; sourceTree = "<group>"; };
+		C213179E1F90AA6D004BECD4 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		C22D16F01F6FAFC80007F398 /* 羽球排點.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "羽球排點.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C22D16F31F6FAFC80007F398 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C22D16F81F6FAFC80007F398 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 		C22D170A1F6FB05E0007F398 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				C213179E1F90AA6D004BECD4 /* Reachability.swift */,
 				C22D16FA1F6FAFC80007F398 /* Assets.xcassets */,
 			);
 			path = Resource;
@@ -336,6 +339,7 @@
 				C22D17151F6FBFA90007F398 /* PlayerCollectionViewCell.swift in Sources */,
 				C2654EA21F8BA18E0037D610 /* CapsuleButton.swift in Sources */,
 				C29553321F7637D800F07229 /* TeamTableViewCell.swift in Sources */,
+				C213179F1F90AA6D004BECD4 /* Reachability.swift in Sources */,
 				C2654EAA1F8BAD800037D610 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
