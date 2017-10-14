@@ -41,10 +41,14 @@ class LoginViewController: UIViewController {
                 print("Reachable via Cellular")
             }
         }
-        
-        //TODO: add alert when no internet
+    
         reachability.whenUnreachable = { _ in
-            print("Not reachable")
+            let alertController = UIAlertController(title: "離線中", message: "請確認帳網路是否連線", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .cancel, handler: { _ in
+                self.activityIndicator.stopAnimating()
+            })
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
         }
         
         do {
