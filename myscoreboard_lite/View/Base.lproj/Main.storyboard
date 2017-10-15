@@ -107,11 +107,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TeamTableViewCell" editingAccessoryType="detailDisclosureButton" rowHeight="120" id="Fd1-nA-py9" customClass="TeamTableViewCell" customModule="羽球排點" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="TeamTableViewCell" rowHeight="120" id="Fd1-nA-py9" customClass="TeamTableViewCell" customModule="羽球排點" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="768" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fd1-nA-py9" id="bPg-ya-S88">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="119.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="701" height="119.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n8B-lo-L5T">
@@ -150,6 +150,7 @@
                                     <outlet property="memberCountLabel" destination="7ur-SD-nG3" id="8fd-jH-9Xw"/>
                                     <outlet property="nameLabel" destination="ciw-k2-PrX" id="ZAA-FO-Qwm"/>
                                     <outlet property="teamImageView" destination="n8B-lo-L5T" id="gaN-7F-yoj"/>
+                                    <segue destination="7zu-fM-IiB" kind="presentation" identifier="GoToTeamViewController" trigger="accessoryAction" id="eL9-Fa-2RX"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -172,6 +173,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uCl-99-ydL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="957.8125" y="131.8359375"/>
+        </scene>
+        <!--Team View Controller-->
+        <scene sceneID="eKa-nY-A26">
+            <objects>
+                <viewController id="Pzr-RW-pX5" customClass="TeamViewController" customModule="羽球排點" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UJc-eI-6VN">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QrN-Ss-eka">
+                                <rect key="frame" x="331" y="459" width="128" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aeo-gK-FkI">
+                                <rect key="frame" x="309" y="255" width="150" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="fkQ-UV-9Hr"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="9zb-XO-Wht"/>
+                    <connections>
+                        <outlet property="teamImageButton" destination="aeo-gK-FkI" id="AgS-O3-VqS"/>
+                        <outlet property="teamNameTextField" destination="QrN-Ss-eka" id="wfy-jt-SqU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4c7-bf-mxp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="958" y="1477"/>
         </scene>
         <!--Select Players-->
         <scene sceneID="e1j-oP-J0A">
@@ -284,7 +319,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fHc-TH-HxZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3469" y="843"/>
+            <point key="canvasLocation" x="3633.984375" y="842.578125"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3Xu-m9-pbx">
@@ -320,7 +355,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YTO-nA-Jvy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2969" y="843"/>
+            <point key="canvasLocation" x="3134.375" y="842.578125"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="z0t-yt-Ypq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7zu-fM-IiB" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Jxs-6B-KaS">
+                        <rect key="frame" x="0.0" y="20" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Pzr-RW-pX5" kind="relationship" relationship="rootViewController" id="Gti-Nh-z26"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MBO-WV-gCk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="957.8125" y="812.6953125"/>
         </scene>
     </scenes>
 </document>

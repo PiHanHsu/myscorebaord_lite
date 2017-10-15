@@ -87,6 +87,16 @@ class TeamTableViewController: UITableViewController {
             let index = DataSource.sharedInstance.currentPlayingTeamIndex
             vc.team = DataSource.sharedInstance.teams[index]
         }
+        if segue.identifier == "GoToTeamViewController" {
+            let nav = segue.destination as! UINavigationController
+            let vc =  nav.topViewController as! TeamViewController
+            if let cell = sender as? UITableViewCell {
+                if let indexPath = tableView.indexPath(for: cell){
+                    print(indexPath.row)
+                    vc.team = DataSource.sharedInstance.teams[indexPath.row]
+                }
+            }
+        }
     }
     
 
