@@ -199,7 +199,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="fkQ-UV-9Hr"/>
                     </view>
-                    <navigationItem key="navigationItem" id="9zb-XO-Wht"/>
+                    <navigationItem key="navigationItem" id="9zb-XO-Wht">
+                        <barButtonItem key="leftBarButtonItem" title="取消" id="cQK-mh-umZ">
+                            <connections>
+                                <action selector="cancel:" destination="Pzr-RW-pX5" id="Uvc-06-fhH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="teamImageButton" destination="aeo-gK-FkI" id="AgS-O3-VqS"/>
                         <outlet property="teamNameTextField" destination="QrN-Ss-eka" id="wfy-jt-SqU"/>
