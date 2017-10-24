@@ -116,6 +116,14 @@ class GameScheduleTableViewController: UITableViewController {
             let vc =  segue.destination as! GameHistoryTableViewController
             vc.gameHistory = gameHistory
         }
+        
+        if segue.identifier == "SelecePlayerInPlayingMode" {
+            let nav = segue.destination as! UINavigationController
+            let vc =  nav.topViewController as! SelectPlayersCollectionViewController
+            vc.team = DataSource.sharedInstance.currentPlayingTeam
+            vc.isPlayingMode = true
+        }
+        
     }
     
 }

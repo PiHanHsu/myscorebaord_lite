@@ -53,30 +53,34 @@ class SelectPlayersCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if isPlayingMode{
-            return DataSource.sharedInstance.selectedPlayers.count
-        }else{
-             return (team?.players.count)!
-        }
-       
+        return (team?.players.count)!
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlayerCollectionViewCell", for: indexPath) as! PlayerCollectionViewCell
         
+        cell.playerNameLabel.text = team?.players[indexPath.row].name
+        cell.playerImageView.sd_setShowActivityIndicatorView(true)
+        cell.playerImageView.sd_setIndicatorStyle(.gray)
+        let imageURL = URL(string: (team?.players[indexPath.row].imageUrl)!)
+        cell.playerImageView.sd_setImage(with: imageURL, placeholderImage: UIImage(named: "user_placeholder"), options: .continueInBackground, progress: nil, completed: nil)
+        
+        selectedPlayers = DataSource.sharedInstance.selectedPlayers
+        
         if isPlayingMode {
-             selectedPlayers = DataSource.sharedInstance.selectedPlayers
-            cell.isSelected = false
-            cell.playerNameLabel.text = selectedPlayers[indexPath.row].name
-            cell.countLabel.text = String(describing: (selectedPlayers[indexPath.row].uWeight))
-            let imageURL = URL(string: selectedPlayers[indexPath.row].imageUrl)
-            cell.playerImageView.sd_setImage(with: imageURL, placeholderImage: UIImage(named: "user_placeholder"), options: .continueInBackground, progress: nil, completed: nil)
-        }else{
-            cell.playerNameLabel.text = team?.players[indexPath.row].name
-            cell.playerImageView.sd_setShowActivityIndicatorView(true)
-            cell.playerImageView.sd_setIndicatorStyle(.gray)
-            let imageURL = URL(string: (team?.players[indexPath.row].imageUrl)!)
-            cell.playerImageView.sd_setImage(with: imageURL, placeholderImage: UIImage(named: "user_placeholder"), options: .continueInBackground, progress: nil, completed: nil)
+            
+            if let player = team?.players[indexPath.row] {
+                if player.uWeight != 0 {
+                    cell.countLabel.text = String(player.uWeight)
+                }else {
+                    cell.countLabel.text = ""
+                }
+                if selectedPlayers.contains(player){
+                    cell.checkMarkImageView.isHidden = false
+                }else{
+                    cell.checkMarkImageView.isHidden = true
+                }
+            }
         }
        
         return cell
@@ -86,8 +90,14 @@ class SelectPlayersCollectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-         let player = team?.players[indexPath.row]
-         selectedPlayers.append(player!)
+        if let player = team?.players[indexPath.row] {
+            if selectedPlayers.contains(player){
+                collectionView.deselectItem(at: indexPath, animated: false)
+                selectedPlayers = selectedPlayers.filter(){$0 != player}
+            }else{
+                selectedPlayers.append(player)
+            }
+        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {

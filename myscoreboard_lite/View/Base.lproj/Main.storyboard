@@ -8,6 +8,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -265,11 +266,18 @@
                                 <action selector="finishGame:" destination="3KZ-c6-GUi" id="eI4-0D-9av"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="本日記錄" id="Tdh-Uq-8vg">
-                            <connections>
-                                <segue destination="QQG-6z-SBm" kind="show" identifier="GameHistory" id="LaI-Do-S5f"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="本日記錄" id="Tdh-Uq-8vg">
+                                <connections>
+                                    <segue destination="QQG-6z-SBm" kind="show" identifier="GameHistory" id="LaI-Do-S5f"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="選擇球員" id="1Le-yB-3T7">
+                                <connections>
+                                    <segue destination="NOb-u6-guD" kind="presentation" identifier="SelecePlayerInPlayingMode" id="SWN-8i-q1w"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wxa-Y5-evJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -299,13 +307,7 @@
                             <outlet property="delegate" destination="QQG-6z-SBm" id="ZRz-Kp-d6N"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="對戰組合紀錄" id="NZ5-ET-3BO">
-                        <barButtonItem key="rightBarButtonItem" title="出賽場次統計" id="ovx-2q-5mV">
-                            <connections>
-                                <segue destination="NOb-u6-guD" kind="presentation" identifier="PlayGamesCount" id="vfC-hx-gVh"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="對戰組合紀錄" id="NZ5-ET-3BO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X2X-Sy-eIG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -319,7 +321,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fHc-TH-HxZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3633.984375" y="842.578125"/>
+            <point key="canvasLocation" x="2911" y="843"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3Xu-m9-pbx">
@@ -355,7 +357,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YTO-nA-Jvy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3134.375" y="842.578125"/>
+            <point key="canvasLocation" x="2313" y="843"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="z0t-yt-Ypq">
