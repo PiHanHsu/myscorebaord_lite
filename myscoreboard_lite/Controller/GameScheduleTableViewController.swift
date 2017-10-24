@@ -15,18 +15,37 @@ class GameScheduleTableViewController: UITableViewController {
     var courtCount: Int = 1
     var gameByCourt = [[Player]]()
     var gameHistory = [[Player]]()
+    var isFirstTimeEnter = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(false, animated: false)
         tableView.tableFooterView = UIView(frame: CGRect.zero)
-        selectedPlayers = DataSource.sharedInstance.selectedPlayers
-        createGamePlayList()
+        
         // Register cell classes
         let nib = UINib(nibName: "GameScheduleTableViewCell", bundle: nil)
         tableView?.register(nib, forCellReuseIdentifier: "GameScheduleTableViewCell")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        selectedPlayers = DataSource.sharedInstance.selectedPlayers
+            playerBasket = [Player]()
+        for player in selectedPlayers {
+            playerBasket.append(player)
+        }
+        if isFirstTimeEnter {
+            createGamePlayList()
+        }else{
+            for currentGame in gameByCourt {
+                for player in currentGame{
+                    if playerBasket.contains(player){
+                        playerBasket.remove(object: player)
+                    }
+                }
+            }
+        }
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -62,26 +81,47 @@ class GameScheduleTableViewController: UITableViewController {
         gameHistory.append(gameByCourt[index])
         for player in gameByCourt[index]{
             player.uWeight += 1
-            selectedPlayers.append(player)
+            if selectedPlayers.contains(player){
+                playerBasket.append(player)
+            }
         }
-        selectedPlayers = selectedPlayers.shuffle()
-        selectedPlayers.sort { $0.uWeight < $1.uWeight}
+        playerBasket = playerBasket.shuffle()
+        playerBasket.sort { $0.uWeight < $1.uWeight}
         
-        let newGamePlayers = Array(selectedPlayers[0...3])
+        let newGamePlayers = Array(playerBasket[0...3])
         gameByCourt[index] = newGamePlayers
-        selectedPlayers = Array(selectedPlayers.dropFirst(4))
+        playerBasket = Array(playerBasket.dropFirst(4))
+        checkPlayer(players: newGamePlayers)
         tableView.reloadData()
-       
+    }
+    
+    func checkPlayer(players: [Player]) {
+        for i in 0...2{
+            for j in i+1...3{
+                if players[i] == players[j]{
+                    for player in selectedPlayers {
+                        print("Select: \(player.name)")
+                    }
+                    for player in playerBasket {
+                        print("Bakset: \(player.name)")
+                    }
+                    
+                    break
+                }
+            }
+        }
     }
     
     
     func createGamePlayList(){
-        selectedPlayers = selectedPlayers.shuffle()
+        
+        playerBasket = playerBasket.shuffle()
         for _ in 1...courtCount {
-            let playersInOneGame = Array(selectedPlayers[0...3])
+            let playersInOneGame = Array(playerBasket[0...3])
             gameByCourt.append(playersInOneGame)
-            selectedPlayers = Array(selectedPlayers.dropFirst(4))
+            playerBasket = Array(playerBasket.dropFirst(4))
         }
+        isFirstTimeEnter = false
     }
     
     @IBAction func finishGame(_ sender: Any) {
