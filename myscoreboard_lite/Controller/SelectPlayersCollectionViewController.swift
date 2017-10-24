@@ -18,6 +18,7 @@ class SelectPlayersCollectionViewController: UICollectionViewController {
     var selectedPlayers = [Player]()
     var isPlayingMode = false
     var courtCount: Int = 1
+    var minWeight = 0
     
     let sectionInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
 
@@ -26,6 +27,7 @@ class SelectPlayersCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(false, animated: false)
         DataSource.sharedInstance.currentPlayingTeam = team
+        selectedPlayers = DataSource.sharedInstance.selectedPlayers
         // Register cell classes
         let nib = UINib(nibName: "PlayerCollectionViewCell", bundle: nil)
         collectionView?.register(nib, forCellWithReuseIdentifier: "PlayerCollectionViewCell")
@@ -36,6 +38,11 @@ class SelectPlayersCollectionViewController: UICollectionViewController {
         // set barbutton title
         if isPlayingMode {
             gameStartBarButton.title = "繼續比賽"
+            if minWeight != 0 {
+                for player in selectedPlayers{
+                    player.uWeight -= minWeight
+                }
+            }
         }else{
             gameStartBarButton.title = "開始比賽"
         }
@@ -43,6 +50,9 @@ class SelectPlayersCollectionViewController: UICollectionViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if isPlayingMode{
+            
+        }
         collectionView?.reloadData()
     }
 
@@ -65,13 +75,11 @@ class SelectPlayersCollectionViewController: UICollectionViewController {
         let imageURL = URL(string: (team?.players[indexPath.row].imageUrl)!)
         cell.playerImageView.sd_setImage(with: imageURL, placeholderImage: UIImage(named: "user_placeholder"), options: .continueInBackground, progress: nil, completed: nil)
         
-        selectedPlayers = DataSource.sharedInstance.selectedPlayers
-        
         if isPlayingMode {
             
             if let player = team?.players[indexPath.row] {
-                if player.uWeight != 0 {
-                    cell.countLabel.text = String(player.uWeight)
+                if player.gamesPlayed != 0 {
+                    cell.countLabel.text = String(player.gamesPlayed)
                 }else {
                     cell.countLabel.text = ""
                 }
@@ -110,6 +118,7 @@ class SelectPlayersCollectionViewController: UICollectionViewController {
         DataSource.sharedInstance.selectedPlayers = self.selectedPlayers
         
         if isPlayingMode {
+            
             self.dismiss(animated: true, completion: nil)
         }else{
             if selectedPlayers.count < 4 {

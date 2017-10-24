@@ -81,6 +81,7 @@ class GameScheduleTableViewController: UITableViewController {
         gameHistory.append(gameByCourt[index])
         for player in gameByCourt[index]{
             player.uWeight += 1
+            player.gamesPlayed += 1
             if selectedPlayers.contains(player){
                 playerBasket.append(player)
             }
@@ -132,8 +133,9 @@ class GameScheduleTableViewController: UITableViewController {
             for vc in (self.navigationController?.viewControllers ?? []) {
                 if vc is TeamTableViewController {
                    
-                    for player in DataSource.sharedInstance.selectedPlayers {
+                    for player in (DataSource.sharedInstance.currentPlayingTeam?.players)! {
                         player.uWeight = 0
+                        player.gamesPlayed = 0
                     }
                     DataSource.sharedInstance.currentPlayingTeam = nil
                     DataSource.sharedInstance.selectedPlayers = [Player]()
@@ -162,6 +164,8 @@ class GameScheduleTableViewController: UITableViewController {
             let vc =  nav.topViewController as! SelectPlayersCollectionViewController
             vc.team = DataSource.sharedInstance.currentPlayingTeam
             vc.isPlayingMode = true
+            selectedPlayers.sort { $0.uWeight < $1.uWeight}
+            vc.minWeight = selectedPlayers[0].uWeight
         }
         
     }
