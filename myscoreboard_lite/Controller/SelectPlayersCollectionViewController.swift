@@ -73,7 +73,11 @@ class SelectPlayersCollectionViewController: UICollectionViewController {
         cell.playerImageView.sd_setShowActivityIndicatorView(true)
         cell.playerImageView.sd_setIndicatorStyle(.gray)
         let imageURL = URL(string: (team?.players[indexPath.row].imageUrl)!)
-        cell.playerImageView.sd_setImage(with: imageURL, placeholderImage: UIImage(named: "user_placeholder"), options: .retryFailed, progress: nil, completed: nil)
+        DispatchQueue.main.async {
+           
+            cell.playerImageView.sd_setImage(with: imageURL, placeholderImage: UIImage(named: "user_placeholder"), options: .retryFailed, progress: nil, completed: nil)
+        }
+        
         
         if isPlayingMode {
             
