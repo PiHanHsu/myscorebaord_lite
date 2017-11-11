@@ -77,7 +77,19 @@ class GameScheduleTableViewController: UITableViewController {
     }
     
     @objc func gameFinished(sender: UIButton){
-        let index = sender.tag
+        let alert = UIAlertController(title: "結束本場比賽？", message: nil, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "確定", style: .default) { a in
+            let index = sender.tag
+            self.createNextGame(finshedIndex: index)
+        }
+        let cancel = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        alert.addAction(okAction)
+        alert.addAction(cancel)
+        present(alert, animated: true, completion: nil)
+        
+    }
+    func createNextGame(finshedIndex index: Int){
+        
         gameHistory.append(gameByCourt[index])
         for player in gameByCourt[index]{
             player.uWeight += 1
