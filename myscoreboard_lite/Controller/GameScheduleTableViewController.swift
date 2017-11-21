@@ -31,6 +31,7 @@ class GameScheduleTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         selectedPlayers = DataSource.sharedInstance.selectedPlayers
             playerBasket = [Player]()
+        courtCount = DataSource.sharedInstance.courtCount
         for player in selectedPlayers {
             playerBasket.append(player)
         }
@@ -57,7 +58,8 @@ class GameScheduleTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return (self.view.frame.size.height - (self.navigationController?.navigationBar.frame.size.height)! ) / 4.0
+        return 130.0
+        //return (self.view.frame.size.height - (self.navigationController?.navigationBar.frame.size.height)! ) / 4.0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -98,7 +100,7 @@ class GameScheduleTableViewController: UITableViewController {
                 playerBasket.append(player)
             }
         }
-        playerBasket = playerBasket.shuffle()
+        //playerBasket = playerBasket.shuffle()
         playerBasket.sort { $0.uWeight < $1.uWeight}
         
         let newGamePlayers = Array(playerBasket[0...3])
@@ -128,7 +130,7 @@ class GameScheduleTableViewController: UITableViewController {
     
     func createGamePlayList(){
         
-        playerBasket = playerBasket.shuffle()
+        //playerBasket = playerBasket.shuffle()
         for _ in 1...courtCount {
             let playersInOneGame = Array(playerBasket[0...3])
             gameByCourt.append(playersInOneGame)

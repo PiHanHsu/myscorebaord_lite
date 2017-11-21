@@ -176,8 +176,9 @@ class SelectPlayersCollectionViewController: UICollectionViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "StartGame" {
-            let vc = segue.destination as! GameScheduleTableViewController
-            vc.courtCount = courtCount
+            let vc = segue.destination as! GameScheduleViewController
+            //vc.gameScheduleTVC.courtCount = courtCount
+            DataSource.sharedInstance.courtCount = courtCount
         }
     }
 }
