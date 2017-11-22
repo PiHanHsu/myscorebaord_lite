@@ -32,7 +32,7 @@ class SelectPlayersCollectionViewController: UICollectionViewController {
         let nib = UINib(nibName: "PlayerCollectionViewCell", bundle: nil)
         collectionView?.register(nib, forCellWithReuseIdentifier: "PlayerCollectionViewCell")
  
-        // Allouw Multiple Selection
+        // Allow Multiple Selection
         collectionView?.allowsMultipleSelection = true
         
         // set barbutton title

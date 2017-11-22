@@ -12,9 +12,18 @@ class GameScheduleTableViewController: UITableViewController {
  
     var selectedPlayers = [Player]()
     var playerBasket = [Player]()
-    var courtCount: Int = 1
-    var gameByCourt = [[Player]]()
-    var gameHistory = [[Player]]()
+    var courtCount: Int = DataSource.sharedInstance.courtCount
+    var gameByCourt: Array<Array<Player>> {
+        get {
+            return DataSource.sharedInstance.gameByCourt
+        }
+    }
+    var gameHistory: Array<Array<Player>> {
+        get {
+            return DataSource.sharedInstance.gameHistory
+        }
+    }
+    
     var isFirstTimeEnter = true
     
     override func viewDidLoad() {
@@ -25,18 +34,20 @@ class GameScheduleTableViewController: UITableViewController {
         // Register cell classes
         let nib = UINib(nibName: "GameScheduleTableViewCell", bundle: nil)
         tableView?.register(nib, forCellReuseIdentifier: "GameScheduleTableViewCell")
+        
+        //set notificationCenter
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateData(notification:)), name: .updateData, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         selectedPlayers = DataSource.sharedInstance.selectedPlayers
             playerBasket = [Player]()
-        courtCount = DataSource.sharedInstance.courtCount
         for player in selectedPlayers {
             playerBasket.append(player)
         }
         if isFirstTimeEnter {
-            createGamePlayList()
+            DataSource.sharedInstance.createGamePlayList()
         }else{
             for currentGame in gameByCourt {
                 for player in currentGame{
@@ -46,6 +57,10 @@ class GameScheduleTableViewController: UITableViewController {
                 }
             }
         }
+    }
+    
+    @objc func updateData(notification: NSNotification) {
+        tableView.reloadData()
     }
     // MARK: - Table view data source
 
@@ -82,66 +97,13 @@ class GameScheduleTableViewController: UITableViewController {
         let alert = UIAlertController(title: "結束本場比賽？", message: nil, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "確定", style: .default) { a in
             let index = sender.tag
-            self.createNextGame(finshedIndex: index)
+            DataSource.sharedInstance.createNextGame(finshedIndex: index)
+            //self.createNextGame(finshedIndex: index)
         }
         let cancel = UIAlertAction(title: "取消", style: .cancel, handler: nil)
         alert.addAction(okAction)
         alert.addAction(cancel)
         present(alert, animated: true, completion: nil)
-        
-    }
-    func createNextGame(finshedIndex index: Int){
-        
-        gameHistory.append(gameByCourt[index])
-        for player in gameByCourt[index]{
-            player.uWeight += 1
-            player.gamesPlayed += 1
-            if selectedPlayers.contains(player){
-                playerBasket.append(player)
-            }
-        }
-        //playerBasket = playerBasket.shuffle()
-        playerBasket.sort { $0.uWeight < $1.uWeight}
-        
-        let newGamePlayers = Array(playerBasket[0...3])
-        gameByCourt[index] = newGamePlayers
-        playerBasket = Array(playerBasket.dropFirst(4))
-        checkPlayer(players: newGamePlayers)
-        tableView.reloadData()
-        DataSource.sharedInstance.playerBasket = playerBasket
-        NotificationCenter.default.post(name: .updateData, object: nil)
-        
-    }
-    
-    func checkPlayer(players: [Player]) {
-        for i in 0...2{
-            for j in i+1...3{
-                if players[i] == players[j]{
-                    for player in selectedPlayers {
-                        print("Select: \(player.name)")
-                    }
-                    for player in playerBasket {
-                        print("Bakset: \(player.name)")
-                    }
-                    
-                    break
-                }
-            }
-        }
-    }
-    
-    
-    func createGamePlayList(){
-        
-        //playerBasket = playerBasket.shuffle()
-        for _ in 1...courtCount {
-            let playersInOneGame = Array(playerBasket[0...3])
-            gameByCourt.append(playersInOneGame)
-            playerBasket = Array(playerBasket.dropFirst(4))
-        }
-        isFirstTimeEnter = false
-        DataSource.sharedInstance.playerBasket = playerBasket
-        NotificationCenter.default.post(name: .updateData, object: nil)
     }
     
     @IBAction func finishGame(_ sender: Any) {
