@@ -108,6 +108,9 @@ class GameScheduleTableViewController: UITableViewController {
         playerBasket = Array(playerBasket.dropFirst(4))
         checkPlayer(players: newGamePlayers)
         tableView.reloadData()
+        DataSource.sharedInstance.playerBasket = playerBasket
+        NotificationCenter.default.post(name: .updateData, object: nil)
+        
     }
     
     func checkPlayer(players: [Player]) {
@@ -137,6 +140,8 @@ class GameScheduleTableViewController: UITableViewController {
             playerBasket = Array(playerBasket.dropFirst(4))
         }
         isFirstTimeEnter = false
+        DataSource.sharedInstance.playerBasket = playerBasket
+        NotificationCenter.default.post(name: .updateData, object: nil)
     }
     
     @IBAction func finishGame(_ sender: Any) {

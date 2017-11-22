@@ -328,6 +328,9 @@
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IIc-CU-S7H">
                                 <rect key="frame" x="746" y="76" width="258" height="648"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <segue destination="bk0-Xc-mdd" kind="embed" id="26v-tl-Amh"/>
+                                </connections>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -343,6 +346,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LiQ-be-cC7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2311.5234375" y="129.6875"/>
+        </scene>
+        <!--Player List Table View Controller-->
+        <scene sceneID="Egh-o3-j2B">
+            <objects>
+                <tableViewController id="bk0-Xc-mdd" customClass="PlayerListTableViewController" customModule="羽球排點" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="gQU-R4-6Ie">
+                        <rect key="frame" x="0.0" y="0.0" width="258" height="648"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlayerListTableViewCell" id="Uj2-lw-xFg" customClass="PlayerListTableViewCell" customModule="羽球排點" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="258" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Uj2-lw-xFg" id="PqY-rh-1L3">
+                                    <rect key="frame" x="0.0" y="0.0" width="258" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="icL-Y7-raP">
+                                            <rect key="frame" x="8" y="11" width="242" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="icL-Y7-raP" secondAttribute="bottom" constant="3.5" id="ABN-bv-VYv"/>
+                                        <constraint firstItem="icL-Y7-raP" firstAttribute="leading" secondItem="PqY-rh-1L3" secondAttribute="leadingMargin" id="RGU-e5-GWC"/>
+                                        <constraint firstItem="icL-Y7-raP" firstAttribute="top" secondItem="PqY-rh-1L3" secondAttribute="topMargin" constant="3" id="iGz-8c-qAG"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="icL-Y7-raP" secondAttribute="trailing" id="ufV-zW-7sY"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="playerLabel" destination="icL-Y7-raP" id="six-dF-7wr"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="bk0-Xc-mdd" id="3MX-eU-9N2"/>
+                            <outlet property="delegate" destination="bk0-Xc-mdd" id="vTj-SV-8T6"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PRY-za-S6i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2527" y="743"/>
         </scene>
         <!--SelectPlayers-->
         <scene sceneID="qyd-wJ-6K6">
@@ -388,7 +436,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YTO-nA-Jvy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2822" y="1252"/>
+            <point key="canvasLocation" x="2824" y="1452"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="z0t-yt-Ypq">

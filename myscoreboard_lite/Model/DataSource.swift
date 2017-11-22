@@ -15,5 +15,6 @@ struct DataSource {
     var currentPlayingTeam: Team?
     var courtCount = 1
     var selectedPlayers = [Player]()
+    var playerBasket = [Player]()
     var auth_token = ""
 }

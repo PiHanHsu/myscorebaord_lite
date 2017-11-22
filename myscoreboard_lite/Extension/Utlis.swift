@@ -35,3 +35,6 @@ extension Array where Element: Equatable {
         return self
     }
 }
+extension Notification.Name {
+    static let updateData = Notification.Name("updateData")
+}

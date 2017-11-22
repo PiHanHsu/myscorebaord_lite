@@ -21,6 +21,8 @@
 		C22D17151F6FBFA90007F398 /* PlayerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22D17131F6FBFA90007F398 /* PlayerCollectionViewCell.swift */; };
 		C22D17161F6FBFA90007F398 /* PlayerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C22D17141F6FBFA90007F398 /* PlayerCollectionViewCell.xib */; };
 		C23C7E3F1FC4074300392325 /* GameScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23C7E3E1FC4074300392325 /* GameScheduleViewController.swift */; };
+		C23C7E411FC451DE00392325 /* PlayerListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23C7E401FC451DE00392325 /* PlayerListTableViewController.swift */; };
+		C23C7E451FC454D800392325 /* PlayerListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23C7E441FC454D800392325 /* PlayerListTableViewCell.swift */; };
 		C2654EA01F8BA1570037D610 /* Capsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2654E9F1F8BA1570037D610 /* Capsule.swift */; };
 		C2654EA21F8BA18E0037D610 /* CapsuleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2654EA11F8BA18E0037D610 /* CapsuleButton.swift */; };
 		C2654EA41F8BA3FC0037D610 /* DropShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2654EA31F8BA3FC0037D610 /* DropShadow.swift */; };
@@ -57,6 +59,8 @@
 		C22D17131F6FBFA90007F398 /* PlayerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCollectionViewCell.swift; sourceTree = "<group>"; };
 		C22D17141F6FBFA90007F398 /* PlayerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerCollectionViewCell.xib; sourceTree = "<group>"; };
 		C23C7E3E1FC4074300392325 /* GameScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScheduleViewController.swift; sourceTree = "<group>"; };
+		C23C7E401FC451DE00392325 /* PlayerListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListTableViewController.swift; sourceTree = "<group>"; };
+		C23C7E441FC454D800392325 /* PlayerListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListTableViewCell.swift; sourceTree = "<group>"; };
 		C2654E9F1F8BA1570037D610 /* Capsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capsule.swift; sourceTree = "<group>"; };
 		C2654EA11F8BA18E0037D610 /* CapsuleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleButton.swift; sourceTree = "<group>"; };
 		C2654EA31F8BA3FC0037D610 /* DropShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropShadow.swift; sourceTree = "<group>"; };
@@ -156,6 +160,7 @@
 				C29553331F76451800F07229 /* GameScheduleTableViewCell.swift */,
 				C29553341F76451800F07229 /* GameScheduleTableViewCell.xib */,
 				C2654EA11F8BA18E0037D610 /* CapsuleButton.swift */,
+				C23C7E441FC454D800392325 /* PlayerListTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -170,6 +175,7 @@
 				C213177C1F8FED62004BECD4 /* GameHistoryTableViewController.swift */,
 				C21317A01F93CF52004BECD4 /* TeamViewController.swift */,
 				C23C7E3E1FC4074300392325 /* GameScheduleViewController.swift */,
+				C23C7E401FC451DE00392325 /* PlayerListTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -332,6 +338,7 @@
 				C2654EB01F8CC7E20037D610 /* RoundedView.swift in Sources */,
 				C22D17101F6FB1CF0007F398 /* SelectPlayersCollectionViewController.swift in Sources */,
 				C22D16F41F6FAFC80007F398 /* AppDelegate.swift in Sources */,
+				C23C7E411FC451DE00392325 /* PlayerListTableViewController.swift in Sources */,
 				C295532C1F73A67700F07229 /* Team.swift in Sources */,
 				C295532A1F73A5F000F07229 /* Player.swift in Sources */,
 				C22D170E1F6FB1AF0007F398 /* TeamTableViewController.swift in Sources */,
@@ -339,6 +346,7 @@
 				C295532E1F73ADDB00F07229 /* Utlis.swift in Sources */,
 				C2654EA01F8BA1570037D610 /* Capsule.swift in Sources */,
 				C29553351F76451800F07229 /* GameScheduleTableViewCell.swift in Sources */,
+				C23C7E451FC454D800392325 /* PlayerListTableViewCell.swift in Sources */,
 				C2654EA41F8BA3FC0037D610 /* DropShadow.swift in Sources */,
 				C21317A11F93CF52004BECD4 /* TeamViewController.swift in Sources */,
 				C29553301F7631D200F07229 /* DataSource.swift in Sources */,
