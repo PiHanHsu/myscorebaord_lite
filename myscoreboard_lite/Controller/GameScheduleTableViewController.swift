@@ -42,7 +42,7 @@ class GameScheduleTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         selectedPlayers = DataSource.sharedInstance.selectedPlayers
-            playerBasket = [Player]()
+        playerBasket = [Player]()
         for player in selectedPlayers {
             playerBasket.append(player)
         }

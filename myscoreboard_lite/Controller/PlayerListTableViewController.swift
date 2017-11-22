@@ -10,13 +10,28 @@ import UIKit
 
 class PlayerListTableViewController: UITableViewController {
     
-    var playerList = [Player]()
+    var playerList : Array<Player>{
+        get {
+            return DataSource.sharedInstance.playerBasket
+        }
+    }
+    
+    var nextGamePlayers : Array<Player>{
+        get {
+            return DataSource.sharedInstance.nextGamePlayers
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        playerList = DataSource.sharedInstance.playerBasket
+        //nextGamePlayers = DataSource.sharedInstance.nextGamePlayers
+        //playerList = DataSource.sharedInstance.playerBasket
+        
+        // set notivication center
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateData(notification:)), name: .updateData, object: nil)
+        
+        //set table viewfoot view
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,30 +40,72 @@ class PlayerListTableViewController: UITableViewController {
     }
     
     @objc func updateData(notification: NSNotification) {
-        playerList = DataSource.sharedInstance.playerBasket
+        //playerList = DataSource.sharedInstance.playerBasket
+        //nextGamePlayers = DataSource.sharedInstance.nextGamePlayers
         tableView.reloadData()
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
+        if nextGamePlayers.count > 0 {
+            return 2
+        }else{
+            return 1
+        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return playerList.count
+        if nextGamePlayers.count > 0 {
+            switch section {
+            case 0 :
+                return 4
+            case 1:
+                return playerList.count
+            default:
+                return 0
+            }
+        }else{
+            return playerList.count
+        }
     }
 
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if nextGamePlayers.count > 0 {
+            switch section{
+            case 0 :
+                return "下一場球員"
+            case 1:
+                return "未上場球員"
+            default:
+                return ""
+            }
+        }else{
+            return "未上場球員"
+        }
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PlayerListTableViewCell", for: indexPath) as! PlayerListTableViewCell
-        let name = playerList[indexPath.row].name
-        let gameCount = playerList[indexPath.row].gamesPlayed
-        cell.playerLabel.text = "\(name) - \(gameCount)"
-        // Configure the cell...
-
+        if nextGamePlayers.count > 0 {
+            switch indexPath.section {
+            case 0:
+                let name = nextGamePlayers[indexPath.row].name
+                let gameCount = nextGamePlayers[indexPath.row].gamesPlayed
+                cell.playerLabel.text = "\(name) - \(gameCount)"
+            case 1:
+                let name = playerList[indexPath.row].name
+                let gameCount = playerList[indexPath.row].gamesPlayed
+                cell.playerLabel.text = "\(name) - \(gameCount)"
+            default:
+                break
+            }
+        }else{
+            let name = playerList[indexPath.row].name
+            let gameCount = playerList[indexPath.row].gamesPlayed
+            cell.playerLabel.text = "\(name) - \(gameCount)"
+        }
+        
         return cell
     }
     

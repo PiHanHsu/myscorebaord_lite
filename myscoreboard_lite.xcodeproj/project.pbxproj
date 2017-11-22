@@ -499,6 +499,7 @@
 				INFOPLIST_FILE = myscoreboard_lite/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				"OTHER_SWIFT_FLAGS[arch=*]" = "-enforce-exclusivity=unchecked";
 				PRODUCT_BUNDLE_IDENTIFIER = "PiHan.myscoreboard-lite";
 				PRODUCT_NAME = "羽球排點";
 				SWIFT_VERSION = 4.0;

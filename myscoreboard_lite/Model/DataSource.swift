@@ -34,7 +34,7 @@ struct DataSource {
             playerBasket = Array(playerBasket.dropFirst(4))
         }
         
-        //NotificationCenter.default.post(name: .updateData, object: nil)
+        NotificationCenter.default.post(name: .updateData, object: nil)
     }
     
     mutating func createNextGame(finshedIndex index: Int){
