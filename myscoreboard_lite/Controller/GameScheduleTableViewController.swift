@@ -106,31 +106,7 @@ class GameScheduleTableViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    @IBAction func finishGame(_ sender: Any) {
-        
-        let alertController = UIAlertController(title: "結束今日比賽", message: "球員排點紀錄將會重新計算", preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "OK", style: .default, handler: {
-            UIAlertAction in
-            for vc in (self.navigationController?.viewControllers ?? []) {
-                if vc is TeamTableViewController {
-                   
-                    for player in (DataSource.sharedInstance.currentPlayingTeam?.players)! {
-                        player.uWeight = 0
-                        player.gamesPlayed = 0
-                    }
-                    DataSource.sharedInstance.currentPlayingTeam = nil
-                    DataSource.sharedInstance.selectedPlayers = [Player]()
-                     _ = self.navigationController?.popToViewController(vc, animated: true)
-                    break
-                }
-            }
-        })
-        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
-        alertController.addAction(alertAction)
-        alertController.addAction(cancelAction)
-        self.present(alertController, animated: true, completion: nil)
-        
-    }
+   
     
     // MARK: - Navigation
 

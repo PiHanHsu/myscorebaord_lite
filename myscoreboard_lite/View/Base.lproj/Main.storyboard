@@ -280,7 +280,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wxa-Y5-evJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2222" y="743"/>
+            <point key="canvasLocation" x="2221" y="772"/>
         </scene>
         <!--對戰組合紀錄-->
         <scene sceneID="q4S-O6-gCG">
@@ -311,7 +311,7 @@
             </objects>
             <point key="canvasLocation" x="3617" y="163"/>
         </scene>
-        <!--Game Schedule View Controller-->
+        <!--比賽進行中-->
         <scene sceneID="eq9-mF-Wrx">
             <objects>
                 <viewController id="76a-Q3-ns8" customClass="GameScheduleViewController" customModule="羽球排點" customModuleProvider="target" sceneMemberID="viewController">
@@ -359,6 +359,18 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="比賽進行中" id="9CI-gg-AHh">
+                        <barButtonItem key="leftBarButtonItem" title="結束本日比賽" id="rZS-JH-a0X">
+                            <connections>
+                                <action selector="finishGame:" destination="76a-Q3-ns8" id="DnQ-An-cX4"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="選擇球員" id="1Gu-S2-Hfb">
+                            <connections>
+                                <segue destination="NOb-u6-guD" kind="show" identifier="SelecePlayerInPlayingMode" id="Bew-N6-HNw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LiQ-be-cC7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -407,7 +419,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PRY-za-S6i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2527" y="743"/>
+            <point key="canvasLocation" x="2524" y="772"/>
         </scene>
         <!--SelectPlayers-->
         <scene sceneID="qyd-wJ-6K6">
@@ -417,7 +429,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fHc-TH-HxZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2911" y="843"/>
+            <point key="canvasLocation" x="2948" y="512"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3Xu-m9-pbx">
@@ -453,7 +465,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YTO-nA-Jvy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2824" y="1452"/>
+            <point key="canvasLocation" x="2948" y="129"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="z0t-yt-Ypq">

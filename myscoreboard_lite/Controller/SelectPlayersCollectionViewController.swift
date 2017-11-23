@@ -15,7 +15,14 @@ private let reuseIdentifier = "Cell"
 class SelectPlayersCollectionViewController: UICollectionViewController {
     
     var team : Team?
-    var selectedPlayers = [Player]()
+    var selectedPlayers: Array<Player>{
+        get{
+            return DataSource.sharedInstance.selectedPlayers
+        }
+        set {
+            DataSource.sharedInstance.selectedPlayers = newValue
+        }
+    }
     var isPlayingMode = false
     var courtCount: Int = 1
     var minWeight = 0
@@ -27,7 +34,7 @@ class SelectPlayersCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(false, animated: false)
         DataSource.sharedInstance.currentPlayingTeam = team
-        selectedPlayers = DataSource.sharedInstance.selectedPlayers
+        //selectedPlayers = DataSource.sharedInstance.selectedPlayers
         // Register cell classes
         let nib = UINib(nibName: "PlayerCollectionViewCell", bundle: nil)
         collectionView?.register(nib, forCellWithReuseIdentifier: "PlayerCollectionViewCell")
@@ -120,10 +127,9 @@ class SelectPlayersCollectionViewController: UICollectionViewController {
 
     
     @IBAction func startGameBarButtonPressed(_ sender: UIBarButtonItem) {
-        DataSource.sharedInstance.selectedPlayers = self.selectedPlayers
+        //DataSource.sharedInstance.selectedPlayers = self.selectedPlayers
         
         if isPlayingMode {
-            
             self.dismiss(animated: true, completion: nil)
         }else{
             if selectedPlayers.count < 4 {
