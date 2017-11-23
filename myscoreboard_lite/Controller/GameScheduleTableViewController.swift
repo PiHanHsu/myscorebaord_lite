@@ -65,11 +65,18 @@ class GameScheduleTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return courtCount
+        switch section {
+        case 0:
+            return courtCount
+        case 1:
+            return DataSource.sharedInstance.gameHistory.count
+        default:
+            return 0
+        }
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -77,28 +84,58 @@ class GameScheduleTableViewController: UITableViewController {
         //return (self.view.frame.size.height - (self.navigationController?.navigationBar.frame.size.height)! ) / 4.0
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "GameScheduleTableViewCell", for: indexPath) as! GameScheduleTableViewCell
-        
-        cell.player1Label.text = gameByCourt[indexPath.row][0].name
-        cell.player2Label.text = gameByCourt[indexPath.row][1].name
-        cell.player3Label.text = gameByCourt[indexPath.row][2].name
-        cell.player4Label.text = gameByCourt[indexPath.row][3].name
-        
-        cell.courtNumLabel.text = "Court \(indexPath.row + 1)"
-       
-        cell.finishButton.tag = indexPath.row
-        cell.finishButton.addTarget(self, action: #selector(gameFinished(sender:)), for: .touchUpInside)
-       
-        return cell
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return "正在進行比賽"
+        case 1:
+            return "歷史比賽紀錄"
+        default:
+            return ""
+        }
     }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        switch indexPath.section {
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "GameScheduleTableViewCell", for: indexPath) as! GameScheduleTableViewCell
+            
+            cell.player1Label.text = gameByCourt[indexPath.row][0].name
+            cell.player2Label.text = gameByCourt[indexPath.row][1].name
+            cell.player3Label.text = gameByCourt[indexPath.row][2].name
+            cell.player4Label.text = gameByCourt[indexPath.row][3].name
+            
+            cell.courtNumLabel.text = "Court \(indexPath.row + 1)"
+            
+            cell.finishButton.tag = indexPath.row
+            cell.finishButton.addTarget(self, action: #selector(gameFinished(sender:)), for: .touchUpInside)
+            
+            return cell
+        case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "GameScheduleTableViewCell", for: indexPath) as! GameScheduleTableViewCell
+            
+            cell.player1Label.text = gameHistory[indexPath.row][0].name
+            cell.player2Label.text = gameHistory[indexPath.row][1].name
+            cell.player3Label.text = gameHistory[indexPath.row][2].name
+            cell.player4Label.text = gameHistory[indexPath.row][3].name
+            cell.finishButton.isHidden = true
+            cell.courtNumLabel.text = "Game \(indexPath.row + 1)"
+            
+            return cell
+        default:
+            return UITableViewCell()
+        }
+        
+    }
+    
+    
     
     @objc func gameFinished(sender: UIButton){
         let alert = UIAlertController(title: "結束本場比賽？", message: nil, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "確定", style: .default) { a in
             let index = sender.tag
             DataSource.sharedInstance.createNextGame(finshedIndex: index)
-            //self.createNextGame(finshedIndex: index)
         }
         let cancel = UIAlertAction(title: "取消", style: .cancel, handler: nil)
         alert.addAction(okAction)
@@ -106,7 +143,7 @@ class GameScheduleTableViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
     
-   
+    
     
     // MARK: - Navigation
 
@@ -115,16 +152,7 @@ class GameScheduleTableViewController: UITableViewController {
             let vc =  segue.destination as! GameHistoryTableViewController
             vc.gameHistory = gameHistory
         }
-        
-        if segue.identifier == "SelecePlayerInPlayingMode" {
-            let nav = segue.destination as! UINavigationController
-            let vc =  nav.topViewController as! SelectPlayersCollectionViewController
-            vc.team = DataSource.sharedInstance.currentPlayingTeam
-            vc.isPlayingMode = true
-            selectedPlayers.sort { $0.uWeight < $1.uWeight}
-            vc.minWeight = selectedPlayers[0].uWeight
-        }
-        
+
     }
     
 }
