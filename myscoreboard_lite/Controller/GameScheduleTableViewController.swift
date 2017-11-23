@@ -80,8 +80,14 @@ class GameScheduleTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 130.0
-        //return (self.view.frame.size.height - (self.navigationController?.navigationBar.frame.size.height)! ) / 4.0
+        switch indexPath.section {
+        case 0:
+            return 120.0
+        case 1:
+            return 100.0
+        default:
+            return 0
+        }
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -126,11 +132,8 @@ class GameScheduleTableViewController: UITableViewController {
         default:
             return UITableViewCell()
         }
-        
     }
-    
-    
-    
+  
     @objc func gameFinished(sender: UIButton){
         let alert = UIAlertController(title: "結束本場比賽？", message: nil, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "確定", style: .default) { a in

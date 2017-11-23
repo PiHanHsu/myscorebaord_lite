@@ -13,6 +13,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
         <array key="PingFang.ttc">
             <string>PingFangTC-Regular</string>
         </array>
@@ -123,28 +126,34 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="球隊人數：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ur-SD-nG3">
-                                            <rect key="frame" x="136" y="89" width="87" height="21"/>
+                                            <rect key="frame" x="128" y="89" width="87" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ciw-k2-PrX">
-                                            <rect key="frame" x="136" y="32.5" width="78" height="31.5"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                            <rect key="frame" x="128" y="38" width="58.5" height="21"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="23"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="23"/>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=regular">
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                            </variation>
                                         </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="n8B-lo-L5T" firstAttribute="centerY" secondItem="bPg-ya-S88" secondAttribute="centerY" id="CEB-UG-L7P"/>
                                         <constraint firstItem="ciw-k2-PrX" firstAttribute="centerY" secondItem="n8B-lo-L5T" secondAttribute="centerY" multiplier="0.8" id="EsL-67-KVB"/>
-                                        <constraint firstItem="ciw-k2-PrX" firstAttribute="leading" secondItem="n8B-lo-L5T" secondAttribute="trailing" constant="28" id="R0m-uw-ZZI"/>
+                                        <constraint firstItem="ciw-k2-PrX" firstAttribute="leading" secondItem="n8B-lo-L5T" secondAttribute="trailing" constant="20" id="R0m-uw-ZZI"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ciw-k2-PrX" secondAttribute="trailing" constant="20" symbolic="YES" id="Vcz-PG-0bJ"/>
                                         <constraint firstItem="7ur-SD-nG3" firstAttribute="leading" secondItem="ciw-k2-PrX" secondAttribute="leading" id="bth-02-l1M"/>
                                         <constraint firstItem="n8B-lo-L5T" firstAttribute="leading" secondItem="bPg-ya-S88" secondAttribute="leadingMargin" id="dfL-Jb-A5S"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7ur-SD-nG3" secondAttribute="trailing" constant="20" symbolic="YES" id="g6I-xm-mW9"/>
                                         <constraint firstItem="7ur-SD-nG3" firstAttribute="bottom" secondItem="n8B-lo-L5T" secondAttribute="bottom" id="jQV-XX-bhH"/>
-                                        <constraint firstItem="7ur-SD-nG3" firstAttribute="leading" secondItem="n8B-lo-L5T" secondAttribute="trailing" constant="28" id="pAH-hC-MPQ"/>
+                                        <constraint firstItem="7ur-SD-nG3" firstAttribute="leading" secondItem="n8B-lo-L5T" secondAttribute="trailing" constant="20" id="pAH-hC-MPQ"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
