@@ -65,7 +65,7 @@ class LoginViewController: UIViewController {
         
         let params = ["email" : email,
                       "password" : password]
-        Alamofire.request("https://new.myscoreboardapp.com/api/v1/login", method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).validate().responseJSON{response in
+        Alamofire.request("https://product.myscoreboardapp.com/api/v1/login", method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).validate().responseJSON{response in
             
             if response.result.isSuccess{
                 
@@ -94,7 +94,7 @@ class LoginViewController: UIViewController {
         
         let params = ["auth_token" : token,
                       "user_id" : userID] as [String : Any]
-        Alamofire.request("https://new.myscoreboardapp.com/api/v1/teams", method: .get, parameters: params, encoding: JSONEncoding.default, headers: nil).validate().responseJSON{response in
+        Alamofire.request("https://product.myscoreboardapp.com/api/v1/teams", method: .get, parameters: params, encoding: JSONEncoding.default, headers: nil).validate().responseJSON{response in
             if response.result.isSuccess{
                 
                 let data = JSON(response.result.value!)
