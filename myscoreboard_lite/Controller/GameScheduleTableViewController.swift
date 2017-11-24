@@ -49,24 +49,11 @@ class GameScheduleTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //selectedPlayers = DataSource.sharedInstance.selectedPlayers
-        //playerBasket = [Player]()
-//        for player in selectedPlayers {
-//            playerBasket.append(player)
-//        }
+       
         if isFirstTimeEnter {
             DataSource.sharedInstance.createGamePlayList()
             isFirstTimeEnter = false
         }
-//        else{
-//            for currentGame in gameByCourt {
-//                for player in currentGame{
-//                    if playerBasket.contains(player){
-//                        playerBasket.remove(object: player)
-//                    }
-//                }
-//            }
-//        }
      }
     
     @objc func updateData(notification: NSNotification) {
@@ -123,7 +110,7 @@ class GameScheduleTableViewController: UITableViewController {
             cell.player4Label.text = gameByCourt[indexPath.row][3].name
             
             cell.courtNumLabel.text = "Court \(indexPath.row + 1)"
-            
+            cell.finishButton.isHidden = false
             cell.finishButton.tag = indexPath.row
             cell.finishButton.addTarget(self, action: #selector(gameFinished(sender:)), for: .touchUpInside)
             
