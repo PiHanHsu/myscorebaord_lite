@@ -33,7 +33,7 @@
                         <rect key="frame" x="8" y="8" width="484" height="183.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Court 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OMp-mL-lil">
-                                <rect key="frame" x="202" y="0.0" width="80.5" height="29.5"/>
+                                <rect key="frame" x="202" y="0.0" width="80.5" height="32.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -45,10 +45,10 @@
                                 </variation>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="x2R-b3-cQL">
-                                <rect key="frame" x="12" y="49.5" width="460" height="134"/>
+                                <rect key="frame" x="12" y="37.5" width="460" height="146"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="jA4-LK-j0g">
-                                        <rect key="frame" x="0.0" y="4" width="137.5" height="126"/>
+                                        <rect key="frame" x="0.0" y="10" width="137.5" height="126"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player1 FirstName" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Khg-J9-ah5">
                                                 <rect key="frame" x="0.0" y="0.0" width="137.5" height="53"/>
@@ -71,7 +71,7 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="vs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mvO-c3-Zgl">
-                                        <rect key="frame" x="157.5" y="57" width="20" height="20.5"/>
+                                        <rect key="frame" x="157.5" y="62.5" width="20" height="20.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="1kV-dI-gr1"/>
                                         </constraints>
@@ -80,7 +80,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Oqz-lE-qw9">
-                                        <rect key="frame" x="197.5" y="4" width="152.5" height="126"/>
+                                        <rect key="frame" x="197.5" y="10" width="152.5" height="126"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player3 LastName" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="0Oz-5v-hYs">
                                                 <rect key="frame" x="0.0" y="0.0" width="152.5" height="53"/>
@@ -103,7 +103,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bY5-JS-8Iw" customClass="CapsuleButton" customModule="羽球排點" customModuleProvider="target">
-                                        <rect key="frame" x="370" y="52" width="90" height="30"/>
+                                        <rect key="frame" x="370" y="58" width="90" height="30"/>
                                         <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="70" id="Zlr-Z9-uS5">
@@ -117,7 +117,6 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <variation key="heightClass=regular-widthClass=regular" spacing="20"/>
                     </stackView>
                 </subviews>
                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
