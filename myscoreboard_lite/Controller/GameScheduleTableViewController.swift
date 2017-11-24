@@ -10,8 +10,16 @@ import UIKit
 
 class GameScheduleTableViewController: UITableViewController {
  
-    var selectedPlayers = [Player]()
-    var playerBasket = [Player]()
+    var selectedPlayers : Array<Player> {
+        get{
+            return DataSource.sharedInstance.selectedPlayers
+        }
+    }
+    var playerBasket : Array<Player> {
+        get{
+            return DataSource.sharedInstance.playerBasket
+        }
+    }
     var courtCount: Int = DataSource.sharedInstance.courtCount
     var gameByCourt: Array<Array<Player>> {
         get {
@@ -41,23 +49,25 @@ class GameScheduleTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        selectedPlayers = DataSource.sharedInstance.selectedPlayers
-        playerBasket = [Player]()
-        for player in selectedPlayers {
-            playerBasket.append(player)
-        }
+        //selectedPlayers = DataSource.sharedInstance.selectedPlayers
+        //playerBasket = [Player]()
+//        for player in selectedPlayers {
+//            playerBasket.append(player)
+//        }
         if isFirstTimeEnter {
             DataSource.sharedInstance.createGamePlayList()
-        }else{
-            for currentGame in gameByCourt {
-                for player in currentGame{
-                    if playerBasket.contains(player){
-                        playerBasket.remove(object: player)
-                    }
-                }
-            }
+            isFirstTimeEnter = false
         }
-    }
+//        else{
+//            for currentGame in gameByCourt {
+//                for player in currentGame{
+//                    if playerBasket.contains(player){
+//                        playerBasket.remove(object: player)
+//                    }
+//                }
+//            }
+//        }
+     }
     
     @objc func updateData(notification: NSNotification) {
         tableView.reloadData()

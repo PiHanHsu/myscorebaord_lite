@@ -23,6 +23,7 @@ class SelectPlayersCollectionViewController: UICollectionViewController {
             DataSource.sharedInstance.selectedPlayers = newValue
         }
     }
+    var tempPlayerList = [Player]()
     var isPlayingMode = false
     var courtCount: Int = 1
     var minWeight = 0
@@ -34,7 +35,7 @@ class SelectPlayersCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(false, animated: false)
         DataSource.sharedInstance.currentPlayingTeam = team
-        //selectedPlayers = DataSource.sharedInstance.selectedPlayers
+        
         // Register cell classes
         let nib = UINib(nibName: "PlayerCollectionViewCell", bundle: nil)
         collectionView?.register(nib, forCellWithReuseIdentifier: "PlayerCollectionViewCell")
@@ -58,9 +59,14 @@ class SelectPlayersCollectionViewController: UICollectionViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if isPlayingMode{
-            
+            tempPlayerList = selectedPlayers
         }
         collectionView?.reloadData()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tempPlayerList = [Player]()
     }
 
     // MARK: UICollectionViewDataSource
@@ -130,6 +136,20 @@ class SelectPlayersCollectionViewController: UICollectionViewController {
         //DataSource.sharedInstance.selectedPlayers = self.selectedPlayers
         
         if isPlayingMode {
+            for player in selectedPlayers{
+                if !tempPlayerList.contains(player){
+                    DataSource.sharedInstance.playerBasket.append(player)
+                    DataSource.sharedInstance.notifyToUpdateData()
+                }
+            }
+            for player in tempPlayerList{
+                if !selectedPlayers.contains(player){
+                    if DataSource.sharedInstance.playerBasket.contains(player){
+                        DataSource.sharedInstance.playerBasket.remove(object: player)
+                        DataSource.sharedInstance.notifyToUpdateData()
+                    }
+                }
+            }
             self.dismiss(animated: true, completion: nil)
         }else{
             if selectedPlayers.count < 4 {
@@ -182,7 +202,7 @@ class SelectPlayersCollectionViewController: UICollectionViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "StartGame" {
-            let vc = segue.destination as! GameScheduleViewController
+            //let vc = segue.destination as! GameScheduleViewController
             //vc.gameScheduleTVC.courtCount = courtCount
             DataSource.sharedInstance.courtCount = courtCount
         }
@@ -190,8 +210,6 @@ class SelectPlayersCollectionViewController: UICollectionViewController {
 }
 
 extension SelectPlayersCollectionViewController:  UICollectionViewDelegateFlowLayout{
-    
-   
     
     // item size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
