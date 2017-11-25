@@ -47,7 +47,10 @@ class TeamTableViewController: UITableViewController {
         cell.memberCountLabel.text = "球隊人數： \(teams[indexPath.row].players.count)"
         
         cell.teamImageView.kf.indicatorType = .activity
-        cell.teamImageView.kf.setImage(with: imageURL, placeholder: UIImage(named: "user_placeholder"), options: nil, progressBlock: nil, completionHandler: nil)
+        let processor = ResizingImageProcessor(referenceSize: CGSize(width: cell.teamImageView.frame.size.width, height: cell.teamImageView.frame.size.height))
+        DispatchQueue.main.async {
+            cell.teamImageView.kf.setImage(with: imageURL, placeholder: UIImage(named: "user_placeholder"), options: [.processor(processor)], progressBlock: nil, completionHandler: nil)
+        }
         //cell.teamImageView.sd_setShowActivityIndicatorView(true)
         //cell.teamImageView.sd_setIndicatorStyle(.gray)
         //cell.teamImageView.sd_setImage(with: imageURL, placeholderImage: UIImage(named: "user_placeholder"), options: .retryFailed, completed: nil)

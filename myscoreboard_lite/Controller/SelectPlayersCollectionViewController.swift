@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 //import SDWebImage
 
 private let reuseIdentifier = "Cell"
@@ -29,6 +30,8 @@ class SelectPlayersCollectionViewController: UICollectionViewController {
     var minWeight = 0
     
     let sectionInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
+    
+    var loadImage = true
 
     @IBOutlet weak var gameStartBarButton: UIBarButtonItem!
     override func viewDidLoad() {
@@ -68,6 +71,11 @@ class SelectPlayersCollectionViewController: UICollectionViewController {
         super.viewDidAppear(animated)
         tempPlayerList = [Player]()
     }
+    
+    override func didReceiveMemoryWarning() {
+        print("memory warning!!")
+        loadImage = false
+    }
 
     // MARK: UICollectionViewDataSource
 
@@ -85,7 +93,11 @@ class SelectPlayersCollectionViewController: UICollectionViewController {
         cell.playerNameLabel.text = team?.players[indexPath.row].name
         let imageURL = URL(string: (team?.players[indexPath.row].imageUrl)!)
         cell.playerImageView.kf.indicatorType = .activity
-        cell.playerImageView.kf.setImage(with: imageURL, placeholder: UIImage(named: "user_placeholder"), options: nil, progressBlock: nil, completionHandler: nil)
+        let processor = ResizingImageProcessor(referenceSize: CGSize(width: cell.playerImageView.frame.size.width, height: cell.playerImageView.frame.size.height))
+        DispatchQueue.main.async {
+             cell.playerImageView.kf.setImage(with: imageURL, placeholder: UIImage(named: "user_placeholder"), options: [.processor(processor)], progressBlock: nil, completionHandler: nil)
+        }
+        
         
 //        cell.playerImageView.sd_setShowActivityIndicatorView(true)
 //        cell.playerImageView.sd_setIndicatorStyle(.gray)
