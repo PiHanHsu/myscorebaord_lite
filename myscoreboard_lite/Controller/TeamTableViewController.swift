@@ -8,7 +8,8 @@
 
 import UIKit
 import Alamofire
-import SDWebImage
+//import SDWebImage
+import Kingfisher
 
 class TeamTableViewController: UITableViewController {
 
@@ -44,9 +45,12 @@ class TeamTableViewController: UITableViewController {
         
         cell.nameLabel.text = teams[indexPath.row].name
         cell.memberCountLabel.text = "球隊人數： \(teams[indexPath.row].players.count)"
-        cell.teamImageView.sd_setShowActivityIndicatorView(true)
-        cell.teamImageView.sd_setIndicatorStyle(.gray)
-        cell.teamImageView.sd_setImage(with: imageURL, placeholderImage: UIImage(named: "user_placeholder"), options: .retryFailed, completed: nil)
+        
+        cell.teamImageView.kf.indicatorType = .activity
+        cell.teamImageView.kf.setImage(with: imageURL, placeholder: UIImage(named: "user_placeholder"), options: nil, progressBlock: nil, completionHandler: nil)
+        //cell.teamImageView.sd_setShowActivityIndicatorView(true)
+        //cell.teamImageView.sd_setIndicatorStyle(.gray)
+        //cell.teamImageView.sd_setImage(with: imageURL, placeholderImage: UIImage(named: "user_placeholder"), options: .retryFailed, completed: nil)
 
         return cell
     }

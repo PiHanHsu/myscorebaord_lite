@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SDWebImage
+//import SDWebImage
 
 private let reuseIdentifier = "Cell"
 
@@ -83,7 +83,10 @@ class SelectPlayersCollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlayerCollectionViewCell", for: indexPath) as! PlayerCollectionViewCell
         
         cell.playerNameLabel.text = team?.players[indexPath.row].name
-        //disable showing photo
+        let imageURL = URL(string: (team?.players[indexPath.row].imageUrl)!)
+        cell.playerImageView.kf.indicatorType = .activity
+        cell.playerImageView.kf.setImage(with: imageURL, placeholder: UIImage(named: "user_placeholder"), options: nil, progressBlock: nil, completionHandler: nil)
+        
 //        cell.playerImageView.sd_setShowActivityIndicatorView(true)
 //        cell.playerImageView.sd_setIndicatorStyle(.gray)
 //        let imageURL = URL(string: (team?.players[indexPath.row].imageUrl)!)

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SDWebImage
+//import SDWebImage
 
 class TeamViewController: UIViewController {
 
@@ -21,7 +21,7 @@ class TeamViewController: UIViewController {
         super.viewDidLoad()
         
         let imageUrl = URL(string: (team?.teamImageUrl)!)
-        teamImageButton.sd_setBackgroundImage(with: imageUrl, for: .normal, placeholderImage: UIImage(named: "user_placeholder"), options: .retryFailed, completed: nil)
+        //teamImageButton.sd_setBackgroundImage(with: imageUrl, for: .normal, placeholderImage: UIImage(named: "user_placeholder"), options: .retryFailed, completed: nil)
         
         teamNameTextField.text = team?.name
     }
