@@ -8,7 +8,6 @@
 
 import UIKit
 import Kingfisher
-//import SDWebImage
 
 private let reuseIdentifier = "Cell"
 
@@ -95,19 +94,7 @@ class SelectPlayersCollectionViewController: UICollectionViewController {
         cell.playerImageView.kf.indicatorType = .activity
         
         let processor = ResizingImageProcessor(referenceSize: CGSize(width: cell.playerImageView.frame.size.width, height: cell.playerImageView.frame.size.height), mode: .aspectFit)
-        DispatchQueue.main.async {
-             cell.playerImageView.kf.setImage(with: imageURL, placeholder: UIImage(named: "user_placeholder"), options: [.processor(processor)], progressBlock: nil, completionHandler: nil)
-        }
-        
-        
-//        cell.playerImageView.sd_setShowActivityIndicatorView(true)
-//        cell.playerImageView.sd_setIndicatorStyle(.gray)
-//        let imageURL = URL(string: (team?.players[indexPath.row].imageUrl)!)
-//        DispatchQueue.main.async {
-//
-//            cell.playerImageView.sd_setImage(with: imageURL, placeholderImage: UIImage(named: "user_placeholder"), options: .retryFailed, progress: nil, completed: nil)
-//        }
-        
+        cell.playerImageView.kf.setImage(with: imageURL, placeholder: UIImage(named: "user_placeholder"), options: [.processor(processor)], progressBlock: nil, completionHandler: nil)
         
         if isPlayingMode {
             
@@ -152,20 +139,10 @@ class SelectPlayersCollectionViewController: UICollectionViewController {
         //DataSource.sharedInstance.selectedPlayers = self.selectedPlayers
         
         if isPlayingMode {
-            for player in selectedPlayers{
-                if !tempPlayerList.contains(player){
-                    DataSource.sharedInstance.playerBasket.append(player)
-                    DataSource.sharedInstance.notifyToUpdateData()
-                }
+            if tempPlayerList != selectedPlayers {
+               DataSource.sharedInstance.updatePlayerBasket(oldPlayerList: tempPlayerList)
             }
-            for player in tempPlayerList{
-                if !selectedPlayers.contains(player){
-                    if DataSource.sharedInstance.playerBasket.contains(player){
-                        DataSource.sharedInstance.playerBasket.remove(object: player)
-                        DataSource.sharedInstance.notifyToUpdateData()
-                    }
-                }
-            }
+           
             self.dismiss(animated: true, completion: nil)
         }else{
             if selectedPlayers.count < 4 {

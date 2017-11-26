@@ -64,6 +64,34 @@ struct DataSource {
         notifyToUpdateData()
     }
     
+    mutating func updatePlayerBasket(oldPlayerList: [Player]){
+        for player in selectedPlayers{
+            if !oldPlayerList.contains(player){
+                playerBasket.append(player)
+            }
+        }
+        for player in oldPlayerList{
+            if !selectedPlayers.contains(player){
+                if playerBasket.contains(player){
+                    playerBasket.remove(object: player)
+                }
+            }
+        }
+        if nextGamePlayers.count > 0 {
+            if playerBasket.count == 0 {
+                playerBasket = nextGamePlayers
+                nextGamePlayers = [Player]()
+            }
+        }else{
+            if playerBasket.count > 4 {
+                nextGamePlayers = Array(playerBasket[0...3])
+                playerBasket = Array(playerBasket.dropFirst(4))
+            }
+        }
+        
+        notifyToUpdateData()
+    }
+    
     func notifyToUpdateData(){
         NotificationCenter.default.post(name: .updateData, object: nil)
     }
