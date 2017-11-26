@@ -93,7 +93,8 @@ class SelectPlayersCollectionViewController: UICollectionViewController {
         cell.playerNameLabel.text = team?.players[indexPath.row].name
         let imageURL = URL(string: (team?.players[indexPath.row].imageUrl)!)
         cell.playerImageView.kf.indicatorType = .activity
-        let processor = ResizingImageProcessor(referenceSize: CGSize(width: cell.playerImageView.frame.size.width, height: cell.playerImageView.frame.size.height))
+        
+        let processor = ResizingImageProcessor(referenceSize: CGSize(width: cell.playerImageView.frame.size.width, height: cell.playerImageView.frame.size.height), mode: .aspectFit)
         DispatchQueue.main.async {
              cell.playerImageView.kf.setImage(with: imageURL, placeholder: UIImage(named: "user_placeholder"), options: [.processor(processor)], progressBlock: nil, completionHandler: nil)
         }
