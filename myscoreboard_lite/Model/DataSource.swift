@@ -15,7 +15,7 @@ struct DataSource {
     var currentPlayingTeam: Team?
     var courtCount = 1
     var selectedPlayers = [Player]()
-    var nextGamePlayers = [Player]()
+    var nextGamePlayers : Array<Player>?
     var playerBasket = [Player]()
     var gameByCourt = [[Player]]()
     var gameHistory = [[Player]]()
@@ -47,7 +47,7 @@ struct DataSource {
             }
         }
         
-        if nextGamePlayers.count == 0 {
+        if nextGamePlayers == nil {
             playerBasket = playerBasket.shuffle()
             playerBasket.sort { $0.uWeight < $1.uWeight}
             
@@ -55,7 +55,7 @@ struct DataSource {
             gameByCourt[index] = newGamePlayers
             playerBasket = Array(playerBasket.dropFirst(4))
         }else{
-            gameByCourt[index] = nextGamePlayers
+            gameByCourt[index] = nextGamePlayers!
             playerBasket = playerBasket.shuffle()
             playerBasket.sort { $0.uWeight < $1.uWeight}
             nextGamePlayers = Array(playerBasket[0...3])
@@ -72,15 +72,28 @@ struct DataSource {
         }
         for player in oldPlayerList{
             if !selectedPlayers.contains(player){
-                if playerBasket.contains(player){
-                    playerBasket.remove(object: player)
+                if nextGamePlayers != nil {
+                    if nextGamePlayers!.contains(player){
+                        nextGamePlayers!.remove(object: player)
+                        if playerBasket.count > 0 {
+                            nextGamePlayers?.append(playerBasket[0])
+                            playerBasket = Array(playerBasket.dropFirst())
+                        }else{
+                            playerBasket = nextGamePlayers!
+                            nextGamePlayers = nil
+                        }
+                    }
+                }else{
+                    if playerBasket.contains(player){
+                        playerBasket.remove(object: player)
+                    }
                 }
             }
         }
-        if nextGamePlayers.count > 0 {
+        if nextGamePlayers != nil {
             if playerBasket.count == 0 {
-                playerBasket = nextGamePlayers
-                nextGamePlayers = [Player]()
+                playerBasket = nextGamePlayers!
+                nextGamePlayers = nil
             }
         }else{
             if playerBasket.count > 4 {

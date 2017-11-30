@@ -16,7 +16,7 @@ class PlayerListTableViewController: UITableViewController {
         }
     }
     
-    var nextGamePlayers : Array<Player>{
+    var nextGamePlayers : Array<Player>? {
         get {
             return DataSource.sharedInstance.nextGamePlayers
         }
@@ -48,7 +48,7 @@ class PlayerListTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        if nextGamePlayers.count > 0 {
+        if nextGamePlayers != nil {
             return 2
         }else{
             return 1
@@ -56,7 +56,7 @@ class PlayerListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if nextGamePlayers.count > 0 {
+        if nextGamePlayers != nil  {
             switch section {
             case 0 :
                 return 4
@@ -71,7 +71,7 @@ class PlayerListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if nextGamePlayers.count > 0 {
+        if nextGamePlayers != nil {
             switch section{
             case 0 :
                 return "下一場球員"
@@ -87,11 +87,11 @@ class PlayerListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PlayerListTableViewCell", for: indexPath) as! PlayerListTableViewCell
-        if nextGamePlayers.count > 0 {
+        if nextGamePlayers != nil {
             switch indexPath.section {
             case 0:
-                let name = nextGamePlayers[indexPath.row].name
-                let gameCount = nextGamePlayers[indexPath.row].gamesPlayed
+                let name = nextGamePlayers![indexPath.row].name
+                let gameCount = nextGamePlayers![indexPath.row].gamesPlayed
                 cell.playerLabel.text = "\(name) - \(gameCount)"
             case 1:
                 let name = playerList[indexPath.row].name
