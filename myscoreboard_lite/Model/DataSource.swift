@@ -78,9 +78,14 @@ struct DataSource {
                         if playerBasket.count > 0 {
                             nextGamePlayers?.append(playerBasket[0])
                             playerBasket = Array(playerBasket.dropFirst())
+                            print("drop!")
                         }else{
                             playerBasket = nextGamePlayers!
                             nextGamePlayers = nil
+                        }
+                    }else{
+                        if playerBasket.contains(player){
+                            playerBasket.remove(object: player)
                         }
                     }
                 }else{
@@ -90,6 +95,7 @@ struct DataSource {
                 }
             }
         }
+        
         if nextGamePlayers != nil {
             if playerBasket.count == 0 {
                 playerBasket = nextGamePlayers!
